@@ -572,16 +572,110 @@ header .logo-fil img {
     height: 95px;
   }
 }
+
+/* FORMULARIO DE PEDIDOS - FIL & SAVEUR */
 .pedido {
-  max-width: 650px;
-  margin: 35px auto;
-  padding: 30px;
+  width: 100%;
+  max-width: 950px;
+  margin: 40px auto;
+  padding: 45px 55px;
   background: #fff5e8;
   border: 2px solid #d6a64b;
-  border-radius: 18px;
+  border-radius: 20px;
   color: #641421;
   box-sizing: border-box;
+  box-shadow: 0 12px 35px #10030780;
 }
+
+/* TÍTULO DEL PRODUCTO */
+.pedido h2 {
+  text-align: center;
+  color: #941f2b;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 38px;
+  margin: 5px 0 25px;
+  line-height: 1.2;
+}
+
+/* DESCRIPCIÓN DEL PRODUCTO */
+.pedido p {
+  max-width: 780px;
+  margin: 0 auto 28px;
+  color: #641421;
+  font-size: 15px;
+  line-height: 1.9;
+  text-align: center;
+}
+
+/* FORMULARIO */
+.pedido form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ETIQUETAS */
+.pedido label {
+  font-weight: bold;
+  margin-top: 10px;
+  color: #641421;
+}
+
+/* CAMPOS */
+.pedido input,
+.pedido textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #d6a64b;
+  border-radius: 9px;
+  background: white;
+  color: #410e1b;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+.pedido textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* BOTÓN */
+.pedido button {
+  margin-top: 20px;
+  padding: 15px;
+  border: none;
+  border-radius: 9px;
+  background: #941f2b;
+  color: #fff5e8;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.pedido button:hover {
+  background: #28533b;
+  transform: translateY(-2px);
+}
+
+/* ADAPTACIÓN PARA CELULARES */
+@media (max-width: 700px) {
+  .pedido {
+    width: 100%;
+    padding: 28px 20px;
+    margin: 25px auto;
+  }
+
+  .pedido h2 {
+    font-size: 30px;
+  }
+
+  .pedido p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}
+
 
 .pedido h2 {
   text-align: center;
