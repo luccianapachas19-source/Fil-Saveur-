@@ -176,6 +176,39 @@ p{line-height:1.7}
 .boton:hover{background:#d6ad65;color:#320912}
 </style>
 </head>
+  <section class="pedido">
+  <h2>Haz tu pedido</h2>
+  <p>Completa los datos de tu pedido personalizado.</p>
+
+  <form id="formPedido">
+    <label for="nombre">Nombres y apellidos</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="celular">Número de celular</label>
+    <input type="tel" id="celular" name="celular"
+           inputmode="tel" required>
+
+    <label for="grado">Grado y sección</label>
+    <input type="text" id="grado" name="grado"
+           placeholder="Ej. 4.º Isaac Newton" required>
+
+    <label for="fecha">Fecha de entrega</label>
+    <input type="date" id="fecha" name="fecha" required>
+
+    <label for="lugar">Lugar de entrega</label>
+    <input type="text" id="lugar" name="lugar" required>
+
+    <label for="hora">Hora de entrega</label>
+    <input type="time" id="hora" name="hora" required>
+
+    <label for="dedicatoria">Dedicatoria</label>
+    <textarea id="dedicatoria" name="dedicatoria"
+      rows="5"
+      placeholder="Escribe un mensaje especial para la persona que recibirá el regalo."></textarea>
+
+    <button type="submit">Realizar pedido</button>
+  </form>
+</section>
 <body>
 <header>
   <a href="index.html" class="logo-fil">
