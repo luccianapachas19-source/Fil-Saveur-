@@ -330,13 +330,18 @@ if (typeof productos === "undefined") {
     ficha.innerHTML = `
       <small>FIL & SAVEUR · ${producto.categoria.toUpperCase()}</small>
       <h1>${producto.nombre}</h1>
-
       <div class="detalle-regalo">
-        <div class="descripcion-regalo">
-          <h2>Descripción del regalo</h2>
-          <p>${producto.descripcion}</p>
-        </div>
+  ${producto.imagen ? `
+    <img class="imagen-regalo"
+         src="${producto.imagen}"
+         alt="${producto.nombre}">
+  ` : ""}
 
+  <div class="descripcion-regalo">
+    <h2>Descripción del regalo</h2>
+    <p>${producto.descripcion}</p>
+  </div>
+</div>
         ${producto.imagen ? `
           <img class="imagen-regalo"
                src="${producto.imagen}"
