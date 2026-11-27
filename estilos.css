@@ -27,6 +27,25 @@ body {
   background-attachment: fixed;
 }
 
+/* LOGO DE FIL & SAVEUR */
+.logo-fil {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+}
+
+.logo-fil img {
+  width: 100%;
+  height: 100%;
+  max-width: 58px;
+  max-height: 58px;
+  object-fit: contain;
+  display: block;
+}
+
 /* Curvas doradas a ambos lados */
 
 body::before,
