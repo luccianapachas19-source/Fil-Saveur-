@@ -5,28 +5,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Producto | Fil & Saveur</title>
-<style>
-body{font-family:system-ui,sans-serif;background:#FFF5E8;
-color:#493128;margin:0}
-header{background:#941F2B;color:white;padding:20px}
-header a{color:white}
-main{max-width:760px;margin:30px auto;padding:20px}
-article{background:white;border-radius:18px;
-padding:24px;box-shadow:0 5px 20px #49312822}
-img{width:100%;max-height:380px;object-fit:cover;
-border-radius:12px}
-h1{color:#941F2B}
-button,.boton{display:inline-block;background:#28533B;
-color:white;border:0;border-radius:8px;padding:12px 18px;
-font:inherit;font-weight:bold;text-decoration:none;cursor:pointer}
-</style>
+<link rel="stylesheet" href="estilos.css">
 </head>
 <body>
+
 <header>
-  <a href="index.html">Fil &amp; Saveur · Inicio</a>
+  <a class="marca" href="index.html">Fil & Saveur</a>
+  <nav><a href="index.html">Inicio</a></nav>
 </header>
 
 <main id="contenido"></main>
+
+<footer>Fil & Saveur · The Luz en Loop</footer>
 
 <script src="catalogo.js"></script>
 <script>
@@ -34,34 +24,39 @@ const id = Number(
   new URLSearchParams(location.search).get("id")
 );
 
-const p = productos.find(p => p.id === id);
+const p = productos.find(producto => producto.id === id);
 const contenido = document.getElementById("contenido");
 
-if (!p) {
-  contenido.textContent = "Producto no encontrado.";
-} else {
+if (p) {
   contenido.innerHTML = `
-    <article>
+    <article class="ficha">
       <img src="${p.imagen}" alt="${p.nombre}">
-      <h1>${p.nombre}</h1>
-      <p>${p.descripcion}</p>
-      <h2>S/ ${p.precio.toFixed(2)}</h2>
-
-      <button id="agregar">Agregar al pedido</button>
-      <p id="estado" role="status"></p>
-
-      <a class="boton"
-         href="categoria.html?tipo=${p.categoria}">
-        Volver a la categoría
-      </a>
+      <div>
+        <p class="subtitulo">Fil & Saveur</p>
+        <h2>${p.nombre}</h2>
+        <p>${p.descripcion}</p>
+        <h3>S/ ${p.precio.toFixed(2)}</h3>
+        <button class="boton" id="agregar">
+          Agregar al carrito
+        </button>
+        <p id="mensaje" aria-live="polite"></p>
+        <a href="categoria.html?tipo=${p.categoria}">
+          Volver a la colección
+        </a>
+      </div>
     </article>
   `;
 
   document.getElementById("agregar").onclick = () => {
     agregarAlCarrito(p.id);
-    document.getElementById("estado").textContent =
-      "Producto agregado al pedido.";
+    document.getElementById("mensaje").textContent =
+      "Producto agregado al carrito.";
   };
+} else {
+  contenido.innerHTML = `
+    <h2>Producto no encontrado</h2>
+    <a class="boton" href="index.html">Volver al inicio</a>
+  `;
 }
 </script>
 </body>
