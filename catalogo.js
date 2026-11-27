@@ -4,8 +4,8 @@ const productos = [
   {
     id: 1,
     categoria: "cocina",
-    nombre: "Chocolate artesanal",
-    descripcion: "Un detalle dulce y especial para compartir en esta Navidad. Nuestro chocolate artesanal está preparado con dedicación y presentado con un toque festivo, ideal para sorprender a alguien querido y regalarle un momento lleno de dulzura."
+    nombre: "Chocolate Caliente",
+    descripcion: "Un detalle dulce y rico para compartir en esta Navidad. Nuestro chocolate caliente está preparado con dedicación y amor, ideal para sorprender a alguien querido y regalarle un momento lleno de dulzura."
   },
   {
     id: 2,
