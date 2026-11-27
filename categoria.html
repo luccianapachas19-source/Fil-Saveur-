@@ -1,69 +1,135 @@
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Colección | Fil & Saveur</title>
-<link rel="stylesheet" href="estilos.css">
-</head>
-<body>
+const productos = [
+  // COCINA
+  {
+    id: 1,
+    categoria: "cocina",
+    nombre: "Chocolate artesanal",
+    descripcion: "Un detalle dulce preparado artesanalmente para compartir en Navidad."
+  },
+  {
+    id: 2,
+    categoria: "cocina",
+    nombre: "Brownie",
+    descripcion: "Un postre artesanal de chocolate, ideal para regalar."
+  },
+  {
+    id: 3,
+    categoria: "cocina",
+    nombre: "Mini cupcakes",
+    descripcion: "Pequeños quequitos decorados con un toque navideño."
+  },
+  {
+    id: 4,
+    categoria: "cocina",
+    nombre: "Alfajores",
+    descripcion: "Delicados alfajores artesanales para compartir en familia."
+  },
+  {
+    id: 5,
+    categoria: "cocina",
+    nombre: "Galletas navideñas",
+    descripcion: "Galletas artesanales con detalles inspirados en la Navidad."
+  },
+  {
+    id: 6,
+    categoria: "cocina",
+    nombre: "Trufas",
+    descripcion: "Pequeños bocados de chocolate para regalar en una ocasión especial."
+  },
+  {
+    id: 7,
+    categoria: "cocina",
+    nombre: "Keke navideño",
+    descripcion: "Un queque artesanal elaborado para acompañar las celebraciones navideñas."
+  },
 
-<header>
-  <a class="marca" href="index.html">Fil & Saveur</a>
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="categoria.html?tipo=cocina">Cocina</a>
-    <a href="categoria.html?tipo=costura">Costura</a>
-    <a href="categoria.html?tipo=manualidades">Manualidades</a>
-  </nav>
-</header>
+  // COSTURA
+  {
+    id: 8,
+    categoria: "costura",
+    nombre: "Gorro",
+    descripcion: "Un accesorio textil elaborado con dedicación y estilo artesanal."
+  },
+  {
+    id: 9,
+    categoria: "costura",
+    nombre: "Vincha",
+    descripcion: "Un accesorio de tela hecho a mano para complementar un regalo."
+  },
+  {
+    id: 10,
+    categoria: "costura",
+    nombre: "Mini peluche navideño",
+    descripcion: "Un pequeño peluche artesanal inspirado en la Navidad."
+  },
+  {
+    id: 11,
+    categoria: "costura",
+    nombre: "Calcetines decorativos",
+    descripcion: "Calcetines de tela para decorar espacios durante las fiestas."
+  },
+  {
+    id: 12,
+    categoria: "costura",
+    nombre: "Fundas de almohada",
+    descripcion: "Fundas textiles elaboradas con detalles artesanales."
+  },
+  {
+    id: 13,
+    categoria: "costura",
+    nombre: "Mini cojines",
+    descripcion: "Pequeños cojines de tela para regalar o decorar."
+  },
+  {
+    id: 14,
+    categoria: "costura",
+    nombre: "Bolsa navideña",
+    descripcion: "Una bolsa textil artesanal para presentar regalos de Navidad."
+  },
 
-<main>
-  <section class="centro">
-    <p class="subtitulo">Colección artesanal</p>
-    <h1 id="titulo"></h1>
-    <p>Descubre nuestros regalos de esta colección.</p>
-  </section>
+  // MANUALIDADES
+  {
+    id: 15,
+    categoria: "manualidades",
+    nombre: "Esferas decorativas",
+    descripcion: "Esferas artesanales para decorar el árbol o los espacios del hogar."
+  },
+  {
+    id: 16,
+    categoria: "manualidades",
+    nombre: "Mini corona de Adviento",
+    descripcion: "Una pequeña corona decorativa inspirada en la temporada de Adviento."
+  },
+  {
+    id: 17,
+    categoria: "manualidades",
+    nombre: "Llaveros",
+    descripcion: "Accesorios artesanales pequeños y originales para regalar."
+  },
+  {
+    id: 18,
+    categoria: "manualidades",
+    nombre: "Mini centro de mesa",
+    descripcion: "Una decoración artesanal para acompañar las reuniones navideñas."
+  },
+  {
+    id: 19,
+    categoria: "manualidades",
+    nombre: "Tarjeta 3D",
+    descripcion: "Una tarjeta artesanal con detalles tridimensionales para dedicar."
+  },
+  {
+    id: 20,
+    categoria: "manualidades",
+    nombre: "Bolsas de regalo de papel",
+    descripcion: "Bolsas de papel decoradas a mano para presentar regalos navideños."
+  },
+  {
+    id: 21,
+    categoria: "manualidades",
+    nombre: "Broche navideño",
+    descripcion: "Un pequeño accesorio decorativo inspirado en las fiestas."
+  }
+];
 
-  <div class="rejilla" id="productos"></div>
-</main>
-
-<footer>Fil & Saveur · The Luz en Loop</footer>
-
-<script src="catalogo.js"></script>
-<script>
-const tipo = new URLSearchParams(location.search).get("tipo");
-
-const categorias = {
-  cocina: "Cocina",
-  costura: "Costura",
-  manualidades: "Manualidades"
-};
-
-document.getElementById("titulo").textContent =
-  categorias[tipo] || "Colección no encontrada";
-
-const contenedor = document.getElementById("productos");
-
-productos
-  .filter(p => p.categoria === tipo)
-  .forEach(p => {
-    const tarjeta = document.createElement("article");
-    tarjeta.className = "tarjeta";
-
-    tarjeta.innerHTML = `
-      <img src="${p.imagen}" alt="${p.nombre}">
-      <h3>${p.nombre}</h3>
-      <p>${p.descripcion}</p>
-      <p><strong>S/ ${p.precio.toFixed(2)}</strong></p>
-      <a class="boton" href="producto.html?id=${p.id}">
-        Ver producto
-      </a>
-    `;
-
-    contenedor.appendChild(tarjeta);
-  });
-</script>
-</body>
-</html>
