@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colección | Fil & Saveur</title>
+  <link rel="stylesheet" href="estilos.css">
+
+  <style>
+    .cabecera-coleccion {
+      text-align: center;
+      padding: 35px 15px;
+      margin-bottom: 25px;
+      border-top: 1px solid #D6A64B;
+      border-bottom: 1px solid #D6A64B;
+    }
+
+    .etiqueta {
+      color: #D6A64B;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .producto {
+      min-height: 235px;
+      display: flex;
+      flex-direction: column;
+      padding: 25px;
+      border: 1px solid #D6A64B;
+      outline: 1px solid rgba(214, 166, 75, .3);
+      outline-offset: -7px;
+      border-radius: 65px 65px 5px 5px;
+      background:
+        radial-gradient(
+          ellipse at top,
+          #842537,
+          #4d0b17 75%
+        );
+      color: #FFF5E8;
+      box-shadow: 0 10px 25px #26040d55;
+    }
+
+    .producto h2 {
+      font-size: 29px;
+      margin: 10px 0;
+      color: #FFF5E8;
+    }
+
+    .producto p {
+      line-height: 1.6;
+    }
+
+    .producto .boton {
+      margin-top: auto;
+      align-self: flex-start;
+      background: #f0d69a;
+      color: #320912;
+    }
+
+    .volver {
+      display: inline-block;
+      margin-bottom: 25px;
+      color: #f0d69a;
+    }
+
+    .numero {
+      color: #f0d69a;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a class="marca" href="index.html">Fil & Saveur</a>
+
+    <nav aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="categoria.html?tipo=cocina">Cocina</a>
+      <a href="categoria.html?tipo=costura">Costura</a>
+      <a href="categoria.html?tipo=manualidades">Manualidades</a>
+    </nav>
+  </header>
+
+  <main>
+    <a class="volver" href="index.html">
+      Volver al inicio
+    </a>
+
+    <section class="cabecera-coleccion">
+      <p class="etiqueta">Colección artesanal</p>
+      <h1 id="titulo">Colección</h1>
+      <p id="introduccion"></p>
+    </section>
+
+    <section aria-label="Productos de la colección">
+      <div class="rejilla" id="lista-productos"></div>
+    </section>
+  </main>
+
+  <footer>
+    Fil & Saveur | The Luz en Loop | 2026
+  </footer>
+
+  <script src="catalogo.js"></script>
+
+  <script>
+    const tipo = new URLSearchParams(
+      window.location.search
+    ).get("tipo");
+
+    const categorias = {
+      cocina: {
+        titulo: "Cocina",
+        texto: "Sabores artesanales para regalar y compartir."
+      },
+      costura: {
+        titulo: "Costura",
+        texto: "Creaciones textiles elaboradas con dedicación."
+      },
+      manualidades: {
+        titulo: "Manualidades",
+        texto: "Detalles decorativos y regalos hechos a mano."
+      }
+    };
+
+    const titulo = document.getElementById("titulo");
+    const introduccion = document.getElementById("introduccion");
+    const lista = document.getElementById("lista-productos");
+    const categoria = categorias[tipo];
+
+    if (categoria) {
+      titulo.textContent = categoria.titulo;
+      introduccion.textContent = categoria.texto;
+
+      const filtrados = productos.filter(
+        producto => producto.categoria === tipo
+      );
+
+      filtrados.forEach((producto, indice) => {
+        const tarjeta = document.createElement("article");
+        tarjeta.className = "producto";
+
+        const numero = document.createElement("span");
+        numero.className = "numero";
+        numero.textContent =
+          "PRODUCTO " + String(indice + 1).padStart(2, "0");
+
+        const nombre = document.createElement("h2");
+        nombre.textContent = producto.nombre;
+
+        const descripcion = document.createElement("p");
+        descripcion.textContent = producto.descripcion;
+
+        const enlace = document.createElement("a");
+        enlace.className = "boton";
+        enlace.href = "producto.html?id=" + producto.id;
+        enlace.textContent = "Ver producto";
+
+        tarjeta.append(numero, nombre, descripcion, enlace);
+        lista.appendChild(tarjeta);
+      });
+    } else {
+      titulo.textContent = "Colección no encontrada";
+      introduccion.textContent =
+        "Regresa al inicio para elegir una categoría.";
+    }
+  </script>
+
+</body>
+</html>
