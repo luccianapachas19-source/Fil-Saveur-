@@ -6,7 +6,7 @@ const productos = [
     nombre: "Caja de galletas navideñas",
     descripcion: "Galletas artesanales para regalar en Navidad.",
     precio: 15,
-    imagen: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=900&auto=format&fit=crop"
+    imagen: "imagenes/galletas.jpg"
   },
   {
     id: 2,
@@ -14,7 +14,7 @@ const productos = [
     nombre: "Bolsa de tela personalizada",
     descripcion: "Bolsa artesanal con detalles personalizados.",
     precio: 18,
-    imagen: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop"
+    imagen: "imagenes/bolsa.jpg"
   },
   {
     id: 3,
@@ -22,7 +22,7 @@ const productos = [
     nombre: "Adorno navideño",
     descripcion: "Decoración hecha a mano para regalar.",
     precio: 10,
-    imagen: "https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=900&auto=format&fit=crop"
+    imagen: "imagenes/adorno.jpg"
   }
 ];
 
