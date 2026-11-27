@@ -325,3 +325,31 @@ footer {
     min-height: 400px;
   }
 }
+
+/* IDENTIDAD DE LA MARCA */
+.identidad {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.identidad .marca {
+  margin: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .logo-fil {
+    width: 45px;
+    height: 45px;
+  }
+
+  .logo-fil img {
+    max-width: 45px;
+    max-height: 45px;
+  }
+
+  .marca {
+    font-size: 27px;
+  }
+}
