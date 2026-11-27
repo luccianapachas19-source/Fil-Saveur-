@@ -1,65 +1,64 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Catálogo navideño artesanal de Fil & Saveur.">
+  <title>Fil & Saveur | Catálogo navideño</title>
 
-  <title>Fil & Saveur | Regalos navideños artesanales</title>
-
-  <meta name="description" content="Descubre Fil & Saveur, un catálogo de regalos navideños artesanales de cocina, costura y manualidades.">
+  <link rel="stylesheet" href="estilos.css">
 
   <style>
     :root {
-      --vino: #641421;
-      --vino-oscuro: #320912;
-      --vino-claro: #842537;
+      --vino: #19050b;
+      --borgoña: #360b17;
       --dorado: #d6ad65;
-      --dorado-claro: #f0d69a;
+      --oro-claro: #f0d69a;
       --crema: #fff5e8;
-      --tinta: #40251f;
-      --serif: "Palatino Linotype", "Book Antiqua", Palatino,
-               "Times New Roman", serif;
-      --sans: "Trebuchet MS", Arial, sans-serif;
     }
 
     * {
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
+      min-height: 100vh;
       color: var(--crema);
-      font-family: var(--sans);
+      font-family: Georgia, serif;
       background:
-        radial-gradient(ellipse at 15% 12%, #8a2939 0%, transparent 38%),
-        radial-gradient(ellipse at 90% 45%, #59101e 0%, transparent 42%),
-        linear-gradient(150deg, var(--vino), var(--vino-oscuro));
+        radial-gradient(ellipse at 50% 0%, #4a1322, #210811 48%, #130409 100%);
       background-attachment: fixed;
     }
 
-    body::before {
+    /* Curvas doradas de los laterales */
+    body::before,
+    body::after {
       content: "";
       position: fixed;
-      inset: 0;
+      top: 0;
+      bottom: 0;
+      width: 150px;
       pointer-events: none;
-      opacity: .2;
-      background-image:
-        repeating-radial-gradient(
-          ellipse at 100% 0%,
-          transparent 0 39px,
-          rgba(214,173,101,.23) 40px 41px,
-          transparent 42px 73px
-        );
-      z-index: -1;
+      z-index: 0;
+      opacity: .85;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 900' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23d6ad65'%3E%3Cpath stroke-width='2' d='M5 0 C155 120 10 260 105 400 S20 720 5 900'/%3E%3Cpath stroke-width='1' d='M18 0 C168 120 23 260 118 400 S33 720 18 900'/%3E%3Cpath stroke-width='1' d='M31 0 C181 120 36 260 131 400 S46 720 31 900'/%3E%3C/g%3E%3C/svg%3E");
     }
 
-    a {
-      color: inherit;
+    body::before {
+      left: 0;
+    }
+
+    body::after {
+      right: 0;
+      transform: scaleX(-1);
+    }
+
+    header, main, footer {
+      position: relative;
+      z-index: 1;
     }
 
     header {
@@ -67,325 +66,308 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 20px;
-      padding: 20px 7%;
-      background: rgba(45, 6, 14, .82);
+      gap: 18px;
+      padding: 22px 7%;
+      background: #19050bf2;
       border-bottom: 1px solid var(--dorado);
+      box-shadow: 0 5px 24px #100307;
     }
 
     .marca {
-      font-family: var(--serif);
-      font-size: 29px;
-      letter-spacing: 2px;
+      color: var(--oro-claro);
+      font-size: 32px;
+      font-weight: bold;
+      letter-spacing: 1px;
       text-decoration: none;
     }
 
     nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 22px;
+      gap: 20px;
     }
 
     nav a {
       color: var(--crema);
       text-decoration: none;
-      font-size: 14px;
-      padding: 7px 0;
-      border-bottom: 1px solid transparent;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
     }
 
-    nav a:hover,
-    nav a[aria-current="page"] {
-      color: var(--dorado-claro);
-      border-color: var(--dorado);
+    nav a:hover {
+      color: var(--oro-claro);
     }
 
     main {
-      width: min(1150px, 90%);
+      width: min(1100px, 88%);
       margin: auto;
+      padding: 45px 0;
     }
 
-    .portada {
+    /* Portada */
+    .hero {
       position: relative;
-      isolation: isolate;
-      overflow: hidden;
-      margin: 42px 0 65px;
-      min-height: 480px;
+      min-height: 500px;
       display: grid;
       place-items: center;
       text-align: center;
-      padding: 75px 30px;
+      padding: 55px 30px;
       border: 1px solid var(--dorado);
-      border-radius: 180px 180px 10px 10px;
+      outline: 1px solid #d6ad6570;
+      outline-offset: -10px;
       background:
-        linear-gradient(120deg, rgba(46,6,14,.84), rgba(81,12,25,.78)),
-        url("imagenes/fondo-navidad.jpg") center / cover;
-      box-shadow: 0 20px 55px rgba(20,0,5,.38);
+        linear-gradient(90deg, #18050bec, #320b16b8, #18050bec),
+        url("imagenes/fondo-navidad.jpg") center/cover;
+      box-shadow: 0 15px 45px #100307;
     }
 
-    .portada::before {
+    .hero::before,
+    .hero::after {
       content: "";
       position: absolute;
-      inset: 12px;
-      border: 1px solid rgba(214,173,101,.52);
-      border-radius: 165px 165px 5px 5px;
+      width: 45px;
+      height: 45px;
+      border-color: var(--dorado);
+      border-style: solid;
       pointer-events: none;
     }
 
-    .portada::after {
-      content: "";
-      position: absolute;
-      width: 430px;
-      height: 430px;
-      right: -210px;
-      bottom: -245px;
-      border: 1px solid var(--dorado);
-      border-radius: 50%;
-      box-shadow:
-        0 0 0 12px rgba(214,173,101,.16),
-        0 0 0 28px rgba(214,173,101,.10),
-        0 0 0 48px rgba(214,173,101,.07);
-      pointer-events: none;
+    .hero::before {
+      top: 18px;
+      left: 18px;
+      border-width: 2px 0 0 2px;
     }
 
-    .portada-contenido {
-      max-width: 780px;
+    .hero::after {
+      bottom: 18px;
+      right: 18px;
+      border-width: 0 2px 2px 0;
     }
 
-    .ceja {
-      color: var(--dorado-claro);
-      text-transform: uppercase;
-      letter-spacing: 4px;
+    .hero-contenido {
+      max-width: 680px;
+    }
+
+    .etiqueta {
+      font-family: Arial, sans-serif;
       font-size: 12px;
-      line-height: 1.7;
+      letter-spacing: 5px;
+      color: var(--dorado);
     }
 
     h1, h2, h3 {
-      font-family: var(--serif);
       font-weight: normal;
+      color: var(--oro-claro);
     }
 
     h1 {
-      font-size: clamp(48px, 8vw, 92px);
-      line-height: 1.05;
-      margin: 14px 0 20px;
-      letter-spacing: 2px;
+      margin: 15px 0;
+      font-size: clamp(58px, 9vw, 105px);
+      line-height: .95;
     }
 
-    h2 {
-      font-size: clamp(32px, 5vw, 53px);
-      margin: 12px 0 18px;
-    }
-
-    h3 {
-      font-size: 31px;
-      margin: 10px 0;
+    .slogan {
+      font-size: 22px;
+      font-style: italic;
+      color: var(--oro-claro);
     }
 
     p {
-      line-height: 1.8;
+      line-height: 1.75;
     }
 
-    .intro {
-      max-width: 650px;
-      margin: 0 auto 20px;
-      font-size: 17px;
-    }
-
-    .lema {
-      color: var(--dorado-claro);
-      font-family: var(--serif);
-      font-size: 22px;
-      font-style: italic;
-    }
-
-    .ornamento {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 13px;
-      color: var(--dorado);
-      font-size: 22px;
+    .hero p {
       margin: 18px auto;
     }
 
-    .ornamento::before,
-    .ornamento::after {
+    /* Adorno central */
+    .adorno {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 20px auto;
+      color: var(--dorado);
+    }
+
+    .adorno::before,
+    .adorno::after {
       content: "";
       width: 65px;
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--dorado));
     }
 
-    .ornamento::after {
+    .adorno::after {
       transform: rotate(180deg);
     }
 
-    .boton {
-      display: inline-block;
-      padding: 13px 25px;
+    .adorno span {
+      width: 10px;
+      height: 10px;
       border: 1px solid var(--dorado);
-      border-radius: 2px;
-      color: var(--vino-oscuro);
-      background: var(--dorado-claro);
+      transform: rotate(45deg);
+    }
+
+    .boton,
+    .categoria a {
+      display: inline-block;
+      padding: 13px 24px;
+      border: 1px solid var(--dorado);
+      background: #270912;
+      color: var(--oro-claro);
       text-decoration: none;
-      font-size: 14px;
-      letter-spacing: .7px;
-      transition: background .2s, color .2s;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      transition: background .25s, color .25s;
     }
 
     .boton:hover,
-    .boton:focus-visible {
-      color: var(--crema);
-      background: var(--vino);
-      outline: 1px solid var(--dorado-claro);
+    .categoria a:hover {
+      background: var(--dorado);
+      color: var(--vino);
     }
 
-    .presentacion {
-      max-width: 780px;
-      margin: 0 auto 65px;
+    .seccion {
       text-align: center;
+      padding: 55px 20px 30px;
     }
 
-    .presentacion p {
-      font-size: 16px;
+    .seccion h2 {
+      margin: 8px 0;
+      font-size: clamp(34px, 5vw, 54px);
     }
 
-    .catalogo {
-      scroll-margin-top: 24px;
+    .seccion p {
+      max-width: 700px;
+      margin: 15px auto;
     }
 
-    .titulo-seccion {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .rejilla {
+    .categorias {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
+      gap: 24px;
     }
 
-    .tarjeta {
+    .categoria {
+      position: relative;
+      min-height: 340px;
       display: flex;
       flex-direction: column;
-      min-height: 410px;
-      padding: 30px 24px;
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
+      align-items: center;
+      text-align: center;
+      padding: 35px 24px;
       border: 1px solid var(--dorado);
-      border-radius: 100px 100px 4px 4px;
-      background-color: var(--vino-oscuro);
-      background-position: center;
-      background-size: cover;
-      box-shadow: 0 12px 30px rgba(20,0,5,.35);
+      background-color: #310b16;
+      box-shadow: 0 12px 28px #100307;
+      transition: transform .25s;
     }
 
-    .tarjeta::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: linear-gradient(
-        to bottom,
-        rgba(36,5,12,.35),
-        rgba(36,5,12,.90) 75%
-      );
+    .categoria:hover {
+      transform: translateY(-5px);
     }
 
-    .tarjeta::after {
+    .categoria::before {
       content: "";
       position: absolute;
       inset: 8px;
-      border: 1px solid rgba(214,173,101,.55);
-      border-radius: 94px 94px 2px 2px;
+      border: 1px solid #d6ad654d;
       pointer-events: none;
-      z-index: -1;
     }
 
-    .cocina {
-      background-image: url("imagenes/cocina.jpg");
+    .categoria.cocina {
+      background:
+        linear-gradient(#210710c9, #210710ed),
+        url("imagenes/cocina.jpg") center/cover;
     }
 
-    .costura {
-      background-image: url("imagenes/costura.jpg");
+    .categoria.costura {
+      background:
+        linear-gradient(#210710c9, #210710ed),
+        url("imagenes/costura.jpg") center/cover;
     }
 
-    .manualidades {
-      background-image: url("imagenes/manualidades.jpg");
+    .categoria.manualidades {
+      background:
+        linear-gradient(#210710c9, #210710ed),
+        url("imagenes/manualidades.jpg") center/cover;
     }
 
-    .tarjeta .contenido {
-      margin-top: auto;
+    .numero {
+      color: var(--dorado);
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
     }
 
-    .tarjeta .ceja {
-      letter-spacing: 2px;
+    .categoria h3 {
+      margin: 12px 0 0;
+      font-size: 34px;
     }
 
-    .tarjeta p {
-      font-size: 14px;
+    .categoria p {
+      flex: 1;
+      font-size: 15px;
     }
 
-    .tarjeta .boton {
-      margin-top: 8px;
-    }
-
-    .despues {
-      margin: 70px 0;
-      padding: 45px 7%;
+    .cierre {
+      margin-top: 50px;
+      padding: 40px 25px;
       text-align: center;
       border-top: 1px solid var(--dorado);
       border-bottom: 1px solid var(--dorado);
-      background: rgba(49, 7, 16, .48);
+      background: #250811a8;
     }
 
-    .despues p {
-      max-width: 740px;
-      margin-left: auto;
-      margin-right: auto;
+    .cierre h2 {
+      font-size: clamp(30px, 4vw, 44px);
+    }
+
+    .cierre p {
+      max-width: 700px;
+      margin: auto;
     }
 
     footer {
-      padding: 28px 7%;
+      padding: 35px 20px;
       text-align: center;
-      color: var(--dorado-claro);
-      border-top: 1px solid rgba(214,173,101,.6);
-      background: rgba(45, 6, 14, .65);
-      font-size: 13px;
+      background: #19050b;
+      border-top: 1px solid var(--dorado);
+      color: var(--oro-claro);
     }
 
-    @media (max-width: 800px) {
-      .rejilla {
+    footer p {
+      margin: 6px;
+    }
+
+    @media (max-width: 760px) {
+      body::before,
+      body::after {
+        width: 45px;
+        opacity: .35;
+      }
+
+      header, nav {
+        justify-content: center;
+      }
+
+      main {
+        width: 92%;
+      }
+
+      .hero {
+        min-height: 420px;
+        padding: 45px 20px;
+      }
+
+      .categorias {
         grid-template-columns: 1fr;
       }
 
-      .tarjeta {
-        min-height: 360px;
-      }
-
-      .portada {
-        border-radius: 85px 85px 8px 8px;
-        padding: 65px 22px;
-      }
-
-      .portada::before {
-        border-radius: 73px 73px 5px 5px;
-      }
-
-      header {
-        justify-content: center;
-      }
-
-      nav {
-        justify-content: center;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
+      .categoria {
+        min-height: 280px;
       }
     }
   </style>
@@ -397,7 +379,7 @@
     <a class="marca" href="index.html">Fil & Saveur</a>
 
     <nav aria-label="Navegación principal">
-      <a href="index.html" aria-current="page">Inicio</a>
+      <a href="index.html">Inicio</a>
       <a href="categoria.html?tipo=cocina">Cocina</a>
       <a href="categoria.html?tipo=costura">Costura</a>
       <a href="categoria.html?tipo=manualidades">Manualidades</a>
@@ -406,132 +388,116 @@
 
   <main>
 
-    <section class="portada" aria-labelledby="titulo-principal">
-      <div class="portada-contenido">
-        <p class="ceja">Colección navideña artesanal</p>
-        <div class="ornamento" aria-hidden="true">✦</div>
+    <section class="hero">
+      <div class="hero-contenido">
+        <p class="etiqueta">COLECCIÓN NAVIDEÑA</p>
 
-        <h1 id="titulo-principal">Fil & Saveur</h1>
+        <div class="adorno"><span></span></div>
 
-        <p class="intro">
-          Hay regalos que guardan algo más que una sorpresa:
-          conservan el tiempo, la dedicación y el cariño de
-          quienes los crean. Bienvenidos a una colección
-          navideña donde cada detalle tiene una historia.
+        <h1>Fil & Saveur</h1>
+
+        <p class="slogan">
+          Hecho con pasión, servido con amor
         </p>
 
-        <p class="lema">Hecho con pasión, servido con amor</p>
-
-        <a class="boton" href="#catalogo">Descubrir el catálogo</a>
-      </div>
-    </section>
-
-    <section class="presentacion" aria-labelledby="titulo-proyecto">
-      <p class="ceja">Nuestra esencia</p>
-      <h2 id="titulo-proyecto">El arte de regalar</h2>
-
-      <p>
-        Fil & Saveur nace de la creatividad y el trabajo en
-        equipo. Nuestra propuesta reúne detalles artesanales
-        que combinan imaginación, tradición y un toque
-        contemporáneo para celebrar la Navidad de una manera
-        especial.
-      </p>
-
-      <p>
-        Desde una preparación hecha con dedicación hasta una
-        pieza textil o una decoración elaborada a mano, cada
-        creación busca transmitir una misma idea: los mejores
-        regalos son aquellos que se preparan pensando en los
-        demás.
-      </p>
-    </section>
-
-    <section class="catalogo" id="catalogo"
-             aria-labelledby="titulo-catalogo">
-
-      <div class="titulo-seccion">
-        <p class="ceja">Colecciones de temporada</p>
-        <h2 id="titulo-catalogo">Nuestro catálogo</h2>
         <p>
-          Explora nuestras tres colecciones y encuentra
-          el detalle ideal para compartir esta Navidad.
+          Una colección de regalos artesanales creados
+          para compartir la magia de la Navidad.
+          Cada detalle nace de la creatividad,
+          la dedicación y el cariño.
         </p>
-      </div>
 
-      <div class="rejilla">
-
-        <article class="tarjeta cocina">
-          <div class="contenido">
-            <p class="ceja">Colección 01</p>
-            <h3>Cocina</h3>
-            <p>
-              Sabores artesanales y detalles preparados
-              para regalar, compartir y disfrutar.
-            </p>
-            <a class="boton" href="categoria.html?tipo=cocina">
-              Explorar Cocina
-            </a>
-          </div>
-        </article>
-
-        <article class="tarjeta costura">
-          <div class="contenido">
-            <p class="ceja">Colección 02</p>
-            <h3>Costura</h3>
-            <p>
-              Creaciones textiles que combinan utilidad,
-              diseño y dedicación artesanal.
-            </p>
-            <a class="boton" href="categoria.html?tipo=costura">
-              Explorar Costura
-            </a>
-          </div>
-        </article>
-
-        <article class="tarjeta manualidades">
-          <div class="contenido">
-            <p class="ceja">Colección 03</p>
-            <h3>Manualidades</h3>
-            <p>
-              Piezas decorativas y regalos originales
-              que llevan un toque personal.
-            </p>
-            <a class="boton" href="categoria.html?tipo=manualidades">
-              Explorar Manualidades
-            </a>
-          </div>
-        </article>
-
+        <a class="boton" href="#categorias">
+          Explorar catálogo
+        </a>
       </div>
     </section>
 
-    <section class="despues" aria-labelledby="titulo-cierre">
-      <div class="ornamento" aria-hidden="true">✦</div>
-      <p class="ceja">Un detalle especial</p>
-      <h2 id="titulo-cierre">Regalos que cuentan historias</h2>
+    <section class="seccion" id="categorias">
+      <p class="etiqueta">NUESTRA COLECCIÓN</p>
+      <h2>Encuentra tu regalo ideal</h2>
+      <div class="adorno"><span></span></div>
 
       <p>
-        La Navidad es una oportunidad para valorar los pequeños
-        gestos. En Fil & Saveur creemos que un regalo artesanal
-        puede expresar gratitud, cariño y alegría de una forma
-        auténtica.
+        Descubre nuestros 21 productos distribuidos
+        en tres categorías artesanales.
+        Explora cada colección y encuentra
+        un detalle especial para regalar.
       </p>
+    </section>
+
+    <div class="categorias">
+
+      <article class="categoria cocina">
+        <span class="numero">COLECCIÓN 01</span>
+        <h3>Cocina</h3>
+        <div class="adorno"><span></span></div>
+
+        <p>
+          Delicias artesanales preparadas para
+          compartir momentos especiales
+          en familia durante la Navidad.
+        </p>
+
+        <a href="categoria.html?tipo=cocina">
+          Explorar Cocina
+        </a>
+      </article>
+
+      <article class="categoria costura">
+        <span class="numero">COLECCIÓN 02</span>
+        <h3>Costura</h3>
+        <div class="adorno"><span></span></div>
+
+        <p>
+          Detalles textiles confeccionados
+          con dedicación, ideales para
+          obsequiar en estas fiestas.
+        </p>
+
+        <a href="categoria.html?tipo=costura">
+          Explorar Costura
+        </a>
+      </article>
+
+      <article class="categoria manualidades">
+        <span class="numero">COLECCIÓN 03</span>
+        <h3>Manualidades</h3>
+        <div class="adorno"><span></span></div>
+
+        <p>
+          Creaciones hechas a mano para
+          decorar, regalar y llenar
+          de alegría cualquier espacio.
+        </p>
+
+        <a href="categoria.html?tipo=manualidades">
+          Explorar Manualidades
+        </a>
+      </article>
+
+    </div>
+
+    <section class="cierre">
+      <p class="etiqueta">UN DETALLE ESPECIAL</p>
+      <h2>Regalos que cuentan historias</h2>
+      <div class="adorno"><span></span></div>
 
       <p>
-        Explora nuestras colecciones y descubre el trabajo
-        creativo que el equipo The Luz en Loop ha preparado
-        para esta temporada.
+        En Fil & Saveur creemos que un regalo artesanal
+        es mucho más que un objeto: representa tiempo,
+        creatividad y cariño. Por eso reunimos propuestas
+        de cocina, costura y manualidades para celebrar
+        una Navidad especial.
       </p>
-
-      <a class="boton" href="#catalogo">Volver al catálogo</a>
     </section>
 
   </main>
 
   <footer>
-    <p>Fil & Saveur · The Luz en Loop · 2026</p>
+    <p class="marca">Fil & Saveur</p>
     <p>Hecho con pasión, servido con amor</p>
+    <p>The Luz en Loop · 2026</p>
   </footer>
 
 </body>
