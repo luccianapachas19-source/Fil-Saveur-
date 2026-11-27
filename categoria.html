@@ -1,135 +1,344 @@
 
-const productos = [
-  // COCINA
-  {
-    id: 1,
-    categoria: "cocina",
-    nombre: "Chocolate artesanal",
-    descripcion: "Un detalle dulce preparado artesanalmente para compartir en Navidad."
-  },
-  {
-    id: 2,
-    categoria: "cocina",
-    nombre: "Brownie",
-    descripcion: "Un postre artesanal de chocolate, ideal para regalar."
-  },
-  {
-    id: 3,
-    categoria: "cocina",
-    nombre: "Mini cupcakes",
-    descripcion: "Pequeños quequitos decorados con un toque navideño."
-  },
-  {
-    id: 4,
-    categoria: "cocina",
-    nombre: "Alfajores",
-    descripcion: "Delicados alfajores artesanales para compartir en familia."
-  },
-  {
-    id: 5,
-    categoria: "cocina",
-    nombre: "Galletas navideñas",
-    descripcion: "Galletas artesanales con detalles inspirados en la Navidad."
-  },
-  {
-    id: 6,
-    categoria: "cocina",
-    nombre: "Trufas",
-    descripcion: "Pequeños bocados de chocolate para regalar en una ocasión especial."
-  },
-  {
-    id: 7,
-    categoria: "cocina",
-    nombre: "Keke navideño",
-    descripcion: "Un queque artesanal elaborado para acompañar las celebraciones navideñas."
-  },
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  // COSTURA
-  {
-    id: 8,
-    categoria: "costura",
-    nombre: "Gorro",
-    descripcion: "Un accesorio textil elaborado con dedicación y estilo artesanal."
-  },
-  {
-    id: 9,
-    categoria: "costura",
-    nombre: "Vincha",
-    descripcion: "Un accesorio de tela hecho a mano para complementar un regalo."
-  },
-  {
-    id: 10,
-    categoria: "costura",
-    nombre: "Mini peluche navideño",
-    descripcion: "Un pequeño peluche artesanal inspirado en la Navidad."
-  },
-  {
-    id: 11,
-    categoria: "costura",
-    nombre: "Calcetines decorativos",
-    descripcion: "Calcetines de tela para decorar espacios durante las fiestas."
-  },
-  {
-    id: 12,
-    categoria: "costura",
-    nombre: "Fundas de almohada",
-    descripcion: "Fundas textiles elaboradas con detalles artesanales."
-  },
-  {
-    id: 13,
-    categoria: "costura",
-    nombre: "Mini cojines",
-    descripcion: "Pequeños cojines de tela para regalar o decorar."
-  },
-  {
-    id: 14,
-    categoria: "costura",
-    nombre: "Bolsa navideña",
-    descripcion: "Una bolsa textil artesanal para presentar regalos de Navidad."
-  },
+  <title>Colecciones | Fil & Saveur</title>
+  <meta name="description" content="Explora los regalos navideños artesanales de Fil & Saveur.">
 
-  // MANUALIDADES
-  {
-    id: 15,
-    categoria: "manualidades",
-    nombre: "Esferas decorativas",
-    descripcion: "Esferas artesanales para decorar el árbol o los espacios del hogar."
-  },
-  {
-    id: 16,
-    categoria: "manualidades",
-    nombre: "Mini corona de Adviento",
-    descripcion: "Una pequeña corona decorativa inspirada en la temporada de Adviento."
-  },
-  {
-    id: 17,
-    categoria: "manualidades",
-    nombre: "Llaveros",
-    descripcion: "Accesorios artesanales pequeños y originales para regalar."
-  },
-  {
-    id: 18,
-    categoria: "manualidades",
-    nombre: "Mini centro de mesa",
-    descripcion: "Una decoración artesanal para acompañar las reuniones navideñas."
-  },
-  {
-    id: 19,
-    categoria: "manualidades",
-    nombre: "Tarjeta 3D",
-    descripcion: "Una tarjeta artesanal con detalles tridimensionales para dedicar."
-  },
-  {
-    id: 20,
-    categoria: "manualidades",
-    nombre: "Bolsas de regalo de papel",
-    descripcion: "Bolsas de papel decoradas a mano para presentar regalos navideños."
-  },
-  {
-    id: 21,
-    categoria: "manualidades",
-    nombre: "Broche navideño",
-    descripcion: "Un pequeño accesorio decorativo inspirado en las fiestas."
-  }
-];
+  <style>
+    :root {
+      --vino: #641421;
+      --vino-oscuro: #320912;
+      --vino-claro: #842537;
+      --dorado: #d6ad65;
+      --dorado-claro: #f0d69a;
+      --crema: #fff5e8;
+      --serif: "Palatino Linotype", "Book Antiqua", Palatino,
+               "Times New Roman", serif;
+      --sans: "Trebuchet MS", Arial, sans-serif;
+    }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: var(--crema);
+      font-family: var(--sans);
+      background:
+        repeating-radial-gradient(
+          ellipse at 100% 0%,
+          transparent 0 45px,
+          rgba(214, 173, 101, .08) 46px 47px,
+          transparent 48px 80px
+        ),
+        radial-gradient(
+          ellipse at top left,
+          var(--vino-claro),
+          var(--vino-oscuro) 75%
+        );
+    }
+
+    a {
+      color: inherit;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      padding: 20px 7%;
+      background: rgba(45, 6, 14, .85);
+      border-bottom: 1px solid var(--dorado);
+    }
+
+    .marca {
+      font-family: var(--serif);
+      font-size: 29px;
+      letter-spacing: 2px;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 14px;
+      padding: 7px 0;
+      border-bottom: 1px solid transparent;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: var(--dorado-claro);
+      border-bottom-color: var(--dorado);
+    }
+
+    main {
+      width: min(1120px, 90%);
+      margin: 0 auto;
+      padding: 38px 0 65px;
+      flex: 1;
+    }
+
+    .volver {
+      display: inline-block;
+      color: var(--dorado-claro);
+      text-decoration: none;
+      margin-bottom: 25px;
+      border-bottom: 1px solid var(--dorado);
+      padding-bottom: 5px;
+    }
+
+    .cabecera {
+      text-align: center;
+      padding: 45px 25px;
+      margin-bottom: 35px;
+      border: 1px solid var(--dorado);
+      outline: 1px solid rgba(214, 173, 101, .4);
+      outline-offset: -9px;
+      border-radius: 100px 100px 5px 5px;
+      background: rgba(50, 9, 18, .65);
+    }
+
+    .etiqueta {
+      color: var(--dorado-claro);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+    }
+
+    h1, h2 {
+      font-family: var(--serif);
+      font-weight: normal;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 72px);
+      margin: 12px 0;
+    }
+
+    .cabecera p {
+      max-width: 650px;
+      margin: 12px auto;
+      line-height: 1.7;
+    }
+
+    .ornamento {
+      color: var(--dorado);
+      letter-spacing: 8px;
+      font-size: 18px;
+    }
+
+    .rejilla {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .producto {
+      display: flex;
+      flex-direction: column;
+      min-height: 260px;
+      padding: 28px 24px;
+      border: 1px solid var(--dorado);
+      outline: 1px solid rgba(214, 173, 101, .35);
+      outline-offset: -8px;
+      border-radius: 70px 70px 5px 5px;
+      background:
+        radial-gradient(
+          ellipse at top,
+          var(--vino-claro),
+          var(--vino-oscuro) 80%
+        );
+      box-shadow: 0 12px 30px rgba(25, 3, 8, .35);
+    }
+
+    .numero {
+      color: var(--dorado-claro);
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    .producto h2 {
+      font-size: 29px;
+      margin: 12px 0 5px;
+    }
+
+    .producto p {
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    .boton {
+      display: inline-block;
+      align-self: flex-start;
+      margin-top: auto;
+      padding: 12px 22px;
+      background: var(--dorado-claro);
+      color: var(--vino-oscuro);
+      border: 1px solid var(--dorado);
+      text-decoration: none;
+      font-size: 14px;
+      transition: background .2s, color .2s;
+    }
+
+    .boton:hover,
+    .boton:focus-visible {
+      background: var(--vino);
+      color: var(--crema);
+      outline: 1px solid var(--dorado-claro);
+    }
+
+    footer {
+      padding: 25px 7%;
+      text-align: center;
+      color: var(--dorado-claro);
+      border-top: 1px solid var(--dorado);
+      background: rgba(45, 6, 14, .7);
+      font-size: 13px;
+    }
+
+    @media (max-width: 850px) {
+      .rejilla {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      header, nav {
+        justify-content: center;
+      }
+
+      .rejilla {
+        grid-template-columns: 1fr;
+      }
+
+      .cabecera {
+        border-radius: 65px 65px 5px 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a class="marca" href="index.html">Fil & Saveur</a>
+
+    <nav aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="categoria.html?tipo=cocina" data-tipo="cocina">Cocina</a>
+      <a href="categoria.html?tipo=costura" data-tipo="costura">Costura</a>
+      <a href="categoria.html?tipo=manualidades" data-tipo="manualidades">Manualidades</a>
+    </nav>
+  </header>
+
+  <main>
+    <a class="volver" href="index.html">Volver al inicio</a>
+
+    <section class="cabecera" aria-labelledby="titulo">
+      <p class="etiqueta">Fil & Saveur | Colección artesanal</p>
+      <div class="ornamento" aria-hidden="true">— ✦ —</div>
+      <h1 id="titulo">Colección</h1>
+      <p id="introduccion"></p>
+    </section>
+
+    <section aria-label="Productos de la colección">
+      <div class="rejilla" id="lista-productos"></div>
+    </section>
+  </main>
+
+  <footer>
+    Fil & Saveur | The Luz en Loop | 2026
+  </footer>
+
+  <script src="catalogo.js"></script>
+
+  <script>
+    const tipo = new URLSearchParams(
+      window.location.search
+    ).get("tipo");
+
+    const categorias = {
+      cocina: {
+        titulo: "Cocina",
+        texto: "Sabores artesanales para regalar y compartir en Navidad."
+      },
+      costura: {
+        titulo: "Costura",
+        texto: "Creaciones textiles elaboradas con dedicación y cuidado."
+      },
+      manualidades: {
+        titulo: "Manualidades",
+        texto: "Detalles decorativos y regalos hechos a mano."
+      }
+    };
+
+    const titulo = document.getElementById("titulo");
+    const introduccion = document.getElementById("introduccion");
+    const lista = document.getElementById("lista-productos");
+    const categoria = categorias[tipo];
+
+    if (categoria) {
+      titulo.textContent = categoria.titulo;
+      introduccion.textContent = categoria.texto;
+      document.title = categoria.titulo + " | Fil & Saveur";
+
+      const enlaceActual = document.querySelector(
+        'nav a[data-tipo="' + tipo + '"]'
+      );
+
+      if (enlaceActual) {
+        enlaceActual.setAttribute("aria-current", "page");
+      }
+
+      const filtrados = productos.filter(
+        producto => producto.categoria === tipo
+      );
+
+      filtrados.forEach((producto, indice) => {
+        const tarjeta = document.createElement("article");
+        tarjeta.className = "producto";
+
+        const numero = document.createElement("span");
+        numero.className = "numero";
+        numero.textContent =
+          "PRODUCTO " + String(indice + 1).padStart(2, "0");
+
+        const nombre = document.createElement("h2");
+        nombre.textContent = producto.nombre;
+
+        const descripcion = document.createElement("p");
+        descripcion.textContent = producto.descripcion;
+
+        const enlace = document.createElement("a");
+        enlace.className = "boton";
+        enlace.href = "producto.html?id=" + producto.id;
+        enlace.textContent = "Ver producto";
+
+        tarjeta.append(numero, nombre, descripcion, enlace);
+        lista.appendChild(tarjeta);
+      });
+    } else {
+      titulo.textContent = "Colección no encontrada";
+      introduccion.textContent =
+        "Regresa al inicio para elegir una categoría.";
+    }
+  </script>
+
+</body>
+</html>
