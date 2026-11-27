@@ -106,21 +106,28 @@
     }
 
     /* Portada */
-    .hero {
-      position: relative;
-      min-height: 500px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 55px 30px;
-      border: 1px solid var(--dorado);
-      outline: 1px solid #d6ad6570;
-      outline-offset: -10px;
-      background:
-  linear-gradient(90deg, #18050bec, #320b16b8, #18050bec),
-  url("fondo-navidad.jpg") center/cover;
-      box-shadow: 0 15px 45px #100307;
-    }
+.hero {
+  position: relative;
+  min-height: 500px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 55px 30px;
+  border: 1px solid var(--dorado);
+  outline: 1px solid #d6ad6570;
+  outline-offset: -10px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(24, 5, 11, 0.75) 0%,
+      rgba(50, 11, 22, 0.30) 50%,
+      rgba(24, 5, 11, 0.75) 100%
+    ),
+    url("fondo-navidad.jpg") center center / cover no-repeat;
+
+  box-shadow: 0 15px 45px #100307;
+}
 
     .hero::before,
     .hero::after {
