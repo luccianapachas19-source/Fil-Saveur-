@@ -490,47 +490,69 @@ header .logo-fil img {
   }
 }
 /* ASISTENTE KIKI */
+/* Kiki: esquina inferior izquierda */
 .kiki-asistente {
   position: fixed;
-  right: 22px;
-  bottom: 18px;
+  left: 22px;
+  right: auto;
+  bottom: 20px;
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 12px;
 }
 
 .kiki-boton {
-  width: 115px;
-  height: 115px;
-  padding: 0;
-  border: none;
-  background: transparent;
+  position: relative;
+  width: 135px;
+  height: 135px;
+  padding: 10px;
+  border: 2px solid #d6ad65;
+  border-radius: 50%;
+  background: radial-gradient(circle, #641421, #320912);
+  box-shadow:
+    0 0 0 4px #320912,
+    0 0 0 6px #d6ad65,
+    0 8px 22px #100307;
   cursor: pointer;
-  transition: transform .3s ease;
-}
-
-.kiki-boton:hover {
-  transform: translateY(-5px) scale(1.04);
 }
 
 .kiki-boton img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
+.kiki-boton::before,
+.kiki-boton::after {
+  content: "✦";
+  position: absolute;
+  color: #f0d69a;
+  font-size: 23px;
+  pointer-events: none;
+}
+
+.kiki-boton::before {
+  top: -12px;
+  right: -7px;
+}
+
+.kiki-boton::after {
+  bottom: -9px;
+  left: -8px;
+}
+
 .kiki-mensaje {
   display: none;
   width: min(290px, calc(100vw - 40px));
-  padding: 20px;
+  padding: 18px;
   background: #fff5e8;
   color: #360b17;
   border: 2px solid #d6ad65;
   box-shadow: 0 8px 25px #100307;
   font-family: Georgia, serif;
-  font-size: 15px;
   line-height: 1.6;
   text-align: center;
 }
@@ -540,48 +562,13 @@ header .logo-fil img {
 }
 
 @media (max-width: 700px) {
-  .kiki-boton {
-    width: 85px;
-    height: 85px;
+  .kiki-asistente {
+    left: 14px;
+    bottom: 15px;
   }
-}
-.kiki-asistente {
-  position: fixed;
-  right: 20px;
-  bottom: 15px;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 10px;
-}
 
-.kiki-boton {
-  width: 110px;
-  height: 110px;
-  padding: 0;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-}
-
-.kiki-boton img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.kiki-mensaje {
-  display: none;
-  max-width: 280px;
-  padding: 18px;
-  background: #fff5e8;
-  color: #360b17;
-  border: 2px solid #d6ad65;
-  text-align: center;
-  line-height: 1.6;
-}
-
-.kiki-mensaje.visible {
-  display: block;
+  .kiki-boton {
+    width: 95px;
+    height: 95px;
+  }
 }
