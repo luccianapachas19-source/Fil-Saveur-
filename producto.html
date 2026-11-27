@@ -2,62 +2,139 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Producto | Fil & Saveur</title>
-<link rel="stylesheet" href="estilos.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Producto | Fil & Saveur</title>
+  <link rel="stylesheet" href="estilos.css">
+
+  <style>
+    .ficha-producto {
+      max-width: 760px;
+      margin: 30px auto;
+      padding: 55px 30px;
+      text-align: center;
+      color: #FFF5E8;
+      background:
+        radial-gradient(
+          ellipse at top,
+          #842537,
+          #4d0b17 80%
+        );
+      border: 1px solid #D6A64B;
+      outline: 1px solid rgba(214, 166, 75, .4);
+      outline-offset: -10px;
+      border-radius: 120px 120px 8px 8px;
+      box-shadow: 0 15px 40px #26040d66;
+    }
+
+    .coleccion {
+      color: #f0d69a;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .descripcion {
+      max-width: 480px;
+      margin: 20px auto 30px;
+      line-height: 1.8;
+      font-size: 17px;
+    }
+
+    .boton {
+      display: inline-block;
+      background: #f0d69a;
+      color: #320912;
+      border: 1px solid #D6A64B;
+      text-decoration: none;
+      padding: 12px 22px;
+    }
+
+    .inicio {
+      display: inline-block;
+      margin-top: 25px;
+      color: #f0d69a;
+    }
+
+    @media (max-width: 600px) {
+      .ficha-producto {
+        border-radius: 65px 65px 8px 8px;
+        padding: 45px 20px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-  <a class="marca" href="index.html">Fil & Saveur</a>
-  <nav><a href="index.html">Inicio</a></nav>
-</header>
+  <header>
+    <a class="marca" href="index.html">Fil & Saveur</a>
 
-<main id="contenido"></main>
+    <nav aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="categoria.html?tipo=cocina">Cocina</a>
+      <a href="categoria.html?tipo=costura">Costura</a>
+      <a href="categoria.html?tipo=manualidades">Manualidades</a>
+    </nav>
+  </header>
 
-<footer>Fil & Saveur · The Luz en Loop</footer>
+  <main>
+    <article class="ficha-producto">
+      <p class="coleccion" id="categoria"></p>
+      <h1 id="nombre">Producto</h1>
+      <p class="descripcion" id="descripcion"></p>
 
-<script src="catalogo.js"></script>
-<script>
-const id = Number(
-  new URLSearchParams(location.search).get("id")
-);
+      <a class="boton" id="volver" href="index.html">
+        Volver a la colección
+      </a>
 
-const p = productos.find(producto => producto.id === id);
-const contenido = document.getElementById("contenido");
+      <br>
 
-if (p) {
-  contenido.innerHTML = `
-    <article class="ficha">
-      <img src="${p.imagen}" alt="${p.nombre}">
-      <div>
-        <p class="subtitulo">Fil & Saveur</p>
-        <h2>${p.nombre}</h2>
-        <p>${p.descripcion}</p>
-        <h3>S/ ${p.precio.toFixed(2)}</h3>
-        <button class="boton" id="agregar">
-          Agregar al carrito
-        </button>
-        <p id="mensaje" aria-live="polite"></p>
-        <a href="categoria.html?tipo=${p.categoria}">
-          Volver a la colección
-        </a>
-      </div>
+      <a class="inicio" href="index.html">
+        Volver al inicio
+      </a>
     </article>
-  `;
+  </main>
 
-  document.getElementById("agregar").onclick = () => {
-    agregarAlCarrito(p.id);
-    document.getElementById("mensaje").textContent =
-      "Producto agregado al carrito.";
-  };
-} else {
-  contenido.innerHTML = `
-    <h2>Producto no encontrado</h2>
-    <a class="boton" href="index.html">Volver al inicio</a>
-  `;
-}
-</script>
+  <footer>
+    Fil & Saveur | The Luz en Loop | 2026
+  </footer>
+
+  <script src="catalogo.js"></script>
+
+  <script>
+    const id = Number(
+      new URLSearchParams(window.location.search).get("id")
+    );
+
+    const producto = productos.find(p => p.id === id);
+
+    const nombre = document.getElementById("nombre");
+    const categoria = document.getElementById("categoria");
+    const descripcion = document.getElementById("descripcion");
+    const volver = document.getElementById("volver");
+
+    if (producto) {
+      nombre.textContent = producto.nombre;
+
+      categoria.textContent =
+        "Colección de " + producto.categoria;
+
+      descripcion.textContent = producto.descripcion;
+
+      volver.href =
+        "categoria.html?tipo=" + producto.categoria;
+
+      document.title = producto.nombre + " | Fil & Saveur";
+    } else {
+      nombre.textContent = "Producto no encontrado";
+      categoria.textContent = "Fil & Saveur";
+      descripcion.textContent =
+        "Regresa al inicio para explorar las colecciones.";
+
+      volver.textContent = "Volver al inicio";
+    }
+  </script>
+
 </body>
 </html>
