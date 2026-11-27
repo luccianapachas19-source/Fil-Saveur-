@@ -353,3 +353,40 @@ footer {
     font-size: 37px;
   }
 }
+
+/* TAMAÑO GENERAL DEL LOGO EN TODAS LAS PÁGINAS */
+.logo-fil {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 55px !important;
+  height: 55px !important;
+  min-width: 55px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.logo-fil img {
+  display: block !important;
+  width: 55px !important;
+  height: 55px !important;
+  max-width: 55px !important;
+  max-height: 55px !important;
+  object-fit: contain !important;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 760px) {
+  .logo-fil {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px;
+  }
+
+  .logo-fil img {
+    width: 42px !important;
+    height: 42px !important;
+    max-width: 42px !important;
+    max-height: 42px !important;
+  }
+}
