@@ -393,3 +393,65 @@ header .logo-fil img {
     max-height: 42px !important;
   }
 }
+/* ENCABEZADO Y LOGO */
+.encabezado {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 14px 6% !important;
+  min-height: 78px;
+}
+
+.identidad {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-fil {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.logo-fil img {
+  display: block !important;
+  width: 48px !important;
+  height: 48px !important;
+  max-width: 48px !important;
+  max-height: 48px !important;
+  object-fit: contain !important;
+}
+
+.marca {
+  font-size: 27px !important;
+  white-space: nowrap;
+}
+
+.inicio {
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .logo-fil {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+  }
+
+  .logo-fil img {
+    width: 40px !important;
+    height: 40px !important;
+    max-width: 40px !important;
+    max-height: 40px !important;
+  }
+
+  .marca {
+    font-size: 23px !important;
+  }
+}
