@@ -2,471 +2,109 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#941F2B">
-<title>Fil &amp; Saveur | Regalos navideños</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-:root{
-  --vino:#941F2B;
-  --oscuro:#68131d;
-  --dorado:#D6A64B;
-  --crema:#FFF5E8;
-  --verde:#28533B;
-  --marron:#493128;
-  --blanco:#fff;
-  --sombra:0 10px 28px #49312818;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
-  background:var(--crema);
-  color:var(--marron);
-  line-height:1.6;
-}
-a{color:inherit}
-button,input,textarea,select{font:inherit}
-button,a{touch-action:manipulation}
-:focus-visible{outline:3px solid #1668a5;outline-offset:4px}
-.skip{
-  position:absolute;left:-9999px;top:8px;
-  background:white;padding:12px;z-index:100;
-}
-.skip:focus{left:8px}
-header{
-  background:var(--vino);color:white;
-  border-bottom:4px solid var(--dorado);
-}
-nav{
-  max-width:1200px;margin:auto;padding:16px 5%;
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:14px;
-}
-.brand{
-  font:700 1.6rem Georgia,serif;
-  text-decoration:none;
-}
-nav ul{
-  display:flex;flex-wrap:wrap;gap:16px;
-  list-style:none;padding:0;margin:0;
-}
-nav a{text-decoration:none;font-weight:700}
-nav a:hover{text-decoration:underline}
-.cart-link{
-  background:var(--dorado);color:var(--marron);
-  padding:10px 16px;border-radius:30px;
-}
-.hero{
-  text-align:center;padding:70px 20px;
-  background:
-    radial-gradient(circle at 15% 20%,#fff 0,transparent 25%),
-    linear-gradient(135deg,#FFF5E8,#f4dfbb);
-  border-bottom:1px solid #d9c39d;
-}
-.hero h1{
-  font:700 clamp(2.5rem,7vw,5rem) Georgia,serif;
-  color:var(--vino);margin:12px 0;
-}
-.hero p{max-width:650px;margin:12px auto 24px}
-.eyebrow{
-  font-weight:800;letter-spacing:2px;color:var(--verde);
-}
-.btn{
-  display:inline-block;border:0;border-radius:9px;
-  padding:12px 20px;background:var(--vino);color:white;
-  font-weight:700;text-decoration:none;cursor:pointer;
-}
-.btn:hover{background:var(--oscuro)}
-.btn.alt{background:var(--verde)}
-main{max-width:1200px;margin:auto;padding:30px 5%}
-section{scroll-margin-top:20px;margin-bottom:48px}
-h2{font:700 2rem Georgia,serif;color:var(--vino)}
-.panel{
-  background:white;border:1px solid #e0cba9;
-  border-radius:18px;padding:24px;box-shadow:var(--sombra);
-}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:20px;margin-top:20px;
-}
-.card{
-  background:white;border:1px solid #e3d2b5;
-  border-radius:18px;overflow:hidden;box-shadow:var(--sombra);
-}
-.card img{
-  display:block;width:100%;height:200px;
-  object-fit:cover;background:#e7d8c5;
-}
-.card-body{padding:18px}
-.card h3{color:var(--vino);margin:0}
-.price{font-size:1.25rem;font-weight:800;color:var(--verde)}
-.small{font-size:.9rem;color:#665044}
-.category-link{
-  display:block;text-decoration:none;
-  transition:transform .2s;
-}
-.category-link:hover{transform:translateY(-4px)}
-.category-link .card-body{border-top:4px solid var(--dorado)}
-.category-link strong{color:var(--vino);font-size:1.3rem}
-label{display:block;font-weight:650;margin:12px 0 5px}
-input,select,textarea{
-  width:100%;padding:11px;border:1px solid #8c786b;
-  border-radius:8px;background:white;color:var(--marron);
-}
-.cart-row{
-  display:flex;justify-content:space-between;align-items:center;
-  flex-wrap:wrap;gap:10px;
-  border-bottom:1px solid #e4d6c4;padding:12px 0;
-}
-.qty{display:flex;align-items:center;gap:10px}
-.qty button{
-  border:1px solid var(--verde);background:white;color:var(--verde);
-  border-radius:7px;min-width:40px;min-height:40px;font-weight:800;
-}
-.total{font-size:1.4rem;font-weight:800;color:var(--vino)}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
-.notice{background:#edf5ee;border-left:4px solid var(--verde);padding:12px}
-footer{background:var(--verde);color:white;text-align:center;padding:25px}
-@media(max-width:600px){
-  .form-grid{grid-template-columns:1fr}
-  .hero{padding:45px 16px}
-  nav ul{gap:10px}
-  .card img{height:180px}
-}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *{transition:none!important}
-}
-</style>
+  <title>Fil & Saveur | Regalos navideños artesanales</title>
+
+  <meta name="description" content="Descubre las colecciones navideñas artesanales de Fil & Saveur. Regalos de cocina, costura y manualidades.">
+
+  <link rel="stylesheet" href="estilos.css">
 </head>
 
 <body>
-<a class="skip" href="#contenido">Saltar al contenido</a>
 
-<header>
-  <nav aria-label="Navegación principal">
-    <a class="brand" href="#inicio">✦ Fil &amp; Saveur</a>
-    <ul>
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#categorias">Catálogo</a></li>
-      <li><a href="#nosotros">Nosotros</a></li>
-      <li>
-        <a class="cart-link" href="#pedido">
-          Pedido (<span id="count">0</span>)
-        </a>
-      </li>
-    </ul>
-  </nav>
-</header>
+  <header>
+    <a class="marca" href="index.html">Fil & Saveur</a>
 
-<main id="contenido">
-  <section class="hero" id="inicio">
-    <div class="eyebrow">✦ THE LUZ EN LOOP ✦</div>
-    <h1>Fil &amp; Saveur</h1>
-    <h2>Hecho con pasión, servido con amor</h2>
-    <p>
-      Descubre nuestra colección de regalos navideños
-      artesanales. Explora, personaliza y selecciona
-      tus detalles favoritos.
-    </p>
-    <a class="btn" href="#categorias">Explorar catálogo</a>
-  </section>
+    <nav aria-label="Navegación principal">
+      <a href="index.html" aria-current="page">Inicio</a>
+      <a href="categoria.html?tipo=cocina">Cocina</a>
+      <a href="categoria.html?tipo=costura">Costura</a>
+      <a href="categoria.html?tipo=manualidades">Manualidades</a>
+    </nav>
+  </header>
 
-  <section id="categorias">
-    <h2>Explora nuestras categorías</h2>
-    <p>Selecciona una categoría para conocer sus productos.</p>
+  <main>
 
-    <label for="search">Buscar un producto</label>
-    <input id="search" type="search"
-      placeholder="Ej. galletas, bolsa o adorno">
-
-    <div class="grid">
-      <a class="card category-link" href="#cocina">
-        <img
-          src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=900&amp;auto=format&amp;fit=crop"
-          alt="Galletas artesanales de cocina"
-          loading="lazy">
-        <div class="card-body">
-          <a href="categoria.html?tipo=cocina">Cocina</a>
-          <p>Regalos comestibles elaborados artesanalmente.</p>
-          <span>Ver productos →</span>
-        </div>
-      </a>
-
-      <a class="card category-link" href="#costura">
-        <img
-          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&amp;auto=format&amp;fit=crop"
-          alt="Materiales y accesorios de costura"
-          loading="lazy">
-        <div class="card-body">
-          <a href="categoria.html?tipo=costura">Costura</a>
-          <p>Detalles textiles hechos a mano.</p>
-          <span>Ver productos →</span>
-        </div>
-      </a>
-
-      <a class="card category-link" href="#manualidades">
-        <img
-          src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=900&amp;auto=format&amp;fit=crop"
-          alt="Materiales para manualidades artesanales"
-          loading="lazy">
-        <div class="card-body"
-          <a href="categoria.html?tipo=manualidades">Manualidades</a>
-          <p>Decoraciones y regalos creativos.</p>
-          <span>Ver productos →</span>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <section id="cocina">
-    <h2>01. Cocina</h2>
-    <p>Preparaciones artesanales para regalar en Navidad.</p>
-    <div class="grid" id="lista-cocina"></div>
-  </section>
-
-  <section id="costura">
-    <h2>02. Costura</h2>
-    <p>Accesorios textiles y regalos personalizados.</p>
-    <div class="grid" id="lista-costura"></div>
-  </section>
-
-  <section id="manualidades">
-    <h2>03. Manualidades</h2>
-    <p>Decoraciones y detalles creativos para Navidad.</p>
-    <div class="grid" id="lista-manualidades"></div>
-  </section>
-
-  <section id="pedido" class="panel">
-    <h2>Tu pedido</h2>
-    <p>Revisa los productos que has seleccionado.</p>
-    <div id="cart"></div>
-    <p id="total" class="total">Total: S/ 0.00</p>
-    <p id="status" role="status" aria-live="polite"></p>
-
-    <form id="orderForm">
-      <div class="form-grid">
-        <div>
-          <label for="customer">Nombre del cliente</label>
-          <input id="customer" autocomplete="name"
-            maxlength="80" required>
-        </div>
-        <div>
-          <label for="phone">Teléfono de contacto</label>
-          <input id="phone" type="tel" autocomplete="tel"
-            maxlength="20" required>
-        </div>
-        <div>
-          <label for="recipient">Nombre del destinatario</label>
-          <input id="recipient" maxlength="80" required>
-        </div>
-        <div>
-          <label for="delivery">Modalidad de entrega</label>
-          <select id="delivery" required>
-            <option value="">Seleccionar</option>
-            <option value="recojo">Recojo coordinado</option>
-            <option value="entrega">Entrega coordinada</option>
-          </select>
-        </div>
+    <section class="portada">
+      <div class="ornamento" aria-hidden="true">
+        &#10087; &#9472;&#9472;&#9472;&#9472;&#9472; &#10087;
       </div>
 
-      <label for="message">Dedicatoria o indicaciones</label>
-      <textarea id="message" rows="3" maxlength="300"></textarea>
+      <p class="subtitulo">Colección navideña artesanal</p>
 
-      <button class="btn" type="submit">
-        Revisar pedido
-      </button>
-    </form>
+      <h1>Fil & Saveur</h1>
 
-    <p class="notice">
-      Prototipo de demostración: los pedidos todavía no
-      se envían ni se almacenan en Supabase.
-    </p>
-  </section>
+      <p class="intro">
+        Descubre regalos artesanales creados con dedicación,
+        creatividad y el encanto de la Navidad.
+        Cada detalle está pensado para compartir momentos
+        especiales con quienes más quieres.
+      </p>
 
-  <section id="nosotros" class="panel">
-    <h2>Sobre Fil &amp; Saveur</h2>
-    <p>
-      Somos un emprendimiento escolar que combina
-      tecnología, creatividad y elaboración artesanal
-      para ofrecer regalos navideños personalizados.
-    </p>
-    <p>
-      <strong>Equipo The Luz en Loop:</strong>
-      Lucciana, Andrea, Favián, Sebastián, Loana y Piero.
-    </p>
-    <p>4.º de secundaria · Isaac Newton</p>
-  </section>
-</main>
+      <p><em>Hecho con pasión, servido con amor</em></p>
 
-<footer>
-  <strong>Fil &amp; Saveur</strong><br>
-  Hecho con pasión, servido con amor
-</footer>
+      <div class="ornamento" aria-hidden="true">
+        &#10087; &#9472;&#9472;&#9472;&#9472;&#9472; &#10087;
+      </div>
+    </section>
 
-<script>
-const $ = id => document.getElementById(id);
+    <section class="centro" aria-labelledby="colecciones">
+      <p class="subtitulo">Explora nuestro catálogo</p>
+      <h2 id="colecciones">Nuestras colecciones</h2>
 
-/* EDITA AQUÍ LOS PRODUCTOS Y PRECIOS.
-   Las imágenes y precios son de referencia. */
-const products = [
-  {
-    id:1,cat:"cocina",
-    name:"Caja de galletas navideñas",
-    desc:"Galletas artesanales para regalar.",
-    price:15,
-    image:"https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=900&auto=format&fit=crop"
-  },
-  {
-    id:2,cat:"cocina",
-    name:"Dulces artesanales",
-    desc:"Una presentación especial de dulces.",
-    price:12,
-    image:"https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=900&auto=format&fit=crop"
-  },
-  {
-    id:3,cat:"costura",
-    name:"Bolsa de tela",
-    desc:"Bolsa artesanal con detalle personalizado.",
-    price:18,
-    image:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop"
-  },
-  {
-    id:4,cat:"manualidades",
-    name:"Adorno navideño",
-    desc:"Decoración hecha a mano para regalar.",
-    price:10,
-    image:"https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=900&auto=format&fit=crop"
-  }
-];
+      <p>
+        Selecciona una categoría para descubrir
+        los regalos que hemos preparado para ti.
+      </p>
 
-let cart = {};
-const money = n => "S/ " + n.toFixed(2);
+      <div class="rejilla">
 
-function renderProducts(){
-  const query = $("search").value.trim().toLowerCase();
+        <article class="tarjeta">
+          <p class="subtitulo">Colección 01</p>
+          <h3>Cocina</h3>
+          <p>
+            Deliciosos detalles artesanales para regalar
+            y compartir en Navidad.
+          </p>
+          <a class="boton" href="categoria.html?tipo=cocina">
+            Explorar Cocina
+          </a>
+        </article>
 
-  ["cocina","costura","manualidades"].forEach(cat=>{
-    const container = $("lista-"+cat);
-    container.replaceChildren();
+        <article class="tarjeta">
+          <p class="subtitulo">Colección 02</p>
+          <h3>Costura</h3>
+          <p>
+            Creaciones textiles elaboradas con cuidado,
+            creatividad y un toque personal.
+          </p>
+          <a class="boton" href="categoria.html?tipo=costura">
+            Explorar Costura
+          </a>
+        </article>
 
-    const filtered = products.filter(p=>
-      p.cat===cat && p.name.toLowerCase().includes(query)
-    );
+        <article class="tarjeta">
+          <p class="subtitulo">Colección 03</p>
+          <h3>Manualidades</h3>
+          <p>
+            Decoraciones y regalos únicos para llenar
+            de encanto cada celebración.
+          </p>
+          <a class="boton" href="categoria.html?tipo=manualidades">
+            Explorar Manualidades
+          </a>
+        </article>
 
-    filtered.forEach(p=>{
-      const card = document.createElement("article");
-      card.className="card";
+      </div>
+    </section>
 
-      const img = document.createElement("img");
-      img.src=p.image;
-      img.alt="Fotografía de referencia: "+p.name;
-      img.loading="lazy";
+  </main>
 
-      const body = document.createElement("div");
-      body.className="card-body";
+  <footer>
+    <p>Fil & Saveur | The Luz en Loop | 2026</p>
+  </footer>
 
-      const title=document.createElement("h3");
-      title.textContent=p.name;
-
-      const desc=document.createElement("p");
-      desc.textContent=p.desc;
-
-      const price=document.createElement("p");
-      price.className="price";
-      price.textContent=money(p.price);
-
-      const btn=document.createElement("button");
-      btn.className="btn";
-      btn.type="button";
-      btn.textContent="Agregar al pedido";
-      btn.onclick=()=>change(p.id,1);
-
-      body.append(title,desc,price,btn);
-      card.append(img,body);
-      container.append(card);
-    });
-
-    if(!filtered.length){
-      container.textContent="No se encontraron productos.";
-    }
-  });
-}
-
-function change(id,delta){
-  const next=(cart[id]||0)+delta;
-  if(next<=0) delete cart[id];
-  else cart[id]=Math.min(next,99);
-
-  renderCart();
-  $("status").textContent="Pedido actualizado.";
-}
-
-function renderCart(){
-  $("cart").replaceChildren();
-  let total=0,count=0;
-
-  products.forEach(p=>{
-    const qty=cart[p.id]||0;
-    if(!qty) return;
-
-    total+=p.price*qty;
-    count+=qty;
-
-    const row=document.createElement("div");
-    row.className="cart-row";
-
-    const name=document.createElement("span");
-    name.textContent=p.name+" — "+money(p.price*qty);
-
-    const controls=document.createElement("div");
-    controls.className="qty";
-
-    const minus=document.createElement("button");
-    minus.type="button";
-    minus.textContent="−";
-    minus.setAttribute("aria-label","Quitar una unidad de "+p.name);
-    minus.onclick=()=>change(p.id,-1);
-
-    const number=document.createElement("span");
-    number.textContent=qty;
-
-    const plus=document.createElement("button");
-    plus.type="button";
-    plus.textContent="+";
-    plus.setAttribute("aria-label","Agregar una unidad de "+p.name);
-    plus.onclick=()=>change(p.id,1);
-
-    controls.append(minus,number,plus);
-    row.append(name,controls);
-    $("cart").append(row);
-  });
-
-  if(!count) $("cart").textContent="Tu pedido está vacío.";
-  $("count").textContent=count;
-  $("total").textContent="Total: "+money(total);
-}
-
-$("search").addEventListener("input",renderProducts);
-
-$("orderForm").addEventListener("submit",e=>{
-  e.preventDefault();
-
-  if(!Object.keys(cart).length){
-    $("status").textContent="Agrega al menos un producto.";
-    return;
-  }
-
-  $("status").textContent=
-    "Pedido de demostración revisado. El envío se habilitará al conectar Supabase.";
-});
-
-renderProducts();
-renderCart();
-</script>
 </body>
 </html>
