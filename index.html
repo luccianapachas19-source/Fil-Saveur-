@@ -680,5 +680,14 @@ footer {
     <img src="kiki.png" alt="Kiki, mascota de Fil & Saveur">
   </button>
 </div>
+  <script>
+const botonKiki = document.getElementById("botonKiki");
+const mensajeKiki = document.getElementById("mensajeKiki");
+
+botonKiki.addEventListener("click", () => {
+  const abierto = mensajeKiki.classList.toggle("visible");
+  botonKiki.setAttribute("aria-expanded", abierto);
+});
+</script>
 </body>
 </html>
