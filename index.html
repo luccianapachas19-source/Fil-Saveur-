@@ -1,5 +1,161 @@
 <!DOCTYPE html>
 <html lang="es">
+  <style>
+:root {
+  --vino: #19050b;
+  --borgoña: #360b17;
+  --dorado: #d6ad65;
+  --oro-claro: #f0d69a;
+  --crema: #fff5e8;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--crema);
+  font-family: Georgia, serif;
+  background:
+    radial-gradient(ellipse at 50% 0%, #4a1322, #210811 48%, #130409 100%) !important;
+  background-attachment: fixed !important;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 110px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .75;
+  background:
+    repeating-radial-gradient(
+      ellipse at left center,
+      transparent 0 12px,
+      #d6ad65 13px 14px,
+      transparent 15px 25px
+    );
+  mask-image: linear-gradient(90deg, black, transparent);
+}
+
+body::before { left: 0; }
+body::after { right: 0; transform: scaleX(-1); }
+
+header, main, footer {
+  position: relative;
+  z-index: 1;
+}
+
+header {
+  background: #210811 !important;
+  border-bottom: 2px solid var(--dorado) !important;
+  box-shadow: 0 5px 0 #210811, 0 6px 0 #8c6534;
+}
+
+h1, h2, h3 {
+  color: var(--oro-claro) !important;
+  font-family: Georgia, serif !important;
+  font-weight: normal !important;
+}
+
+main {
+  max-width: 1150px;
+  margin: auto;
+  padding: 55px 6%;
+}
+
+main h1 {
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 0 3px 15px #120308;
+}
+
+#catalogo {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+  gap: 26px;
+  margin-top: 35px;
+}
+
+.producto, .ficha {
+  position: relative;
+  overflow: hidden;
+  padding: 32px !important;
+  border: 1px solid var(--dorado) !important;
+  border-radius: 0 !important;
+  background:
+    radial-gradient(ellipse at top, #591626, #2c0a14 65%, #1c070e) !important;
+  box-shadow: 0 12px 28px #100307;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.producto::before, .ficha::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid #d6ad6560;
+  pointer-events: none;
+}
+
+.producto::after, .ficha::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 25px;
+  height: 25px;
+  border-top: 2px solid var(--dorado);
+  border-right: 2px solid var(--dorado);
+  pointer-events: none;
+}
+
+.producto:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px #100307;
+}
+
+.producto h2 {
+  font-size: 32px;
+  margin: 16px 0 8px;
+}
+
+.producto p, .ficha p {
+  line-height: 1.75;
+}
+
+.boton {
+  display: inline-block;
+  padding: 12px 22px;
+  border: 1px solid var(--dorado) !important;
+  border-radius: 0 !important;
+  background: #250a13 !important;
+  color: var(--oro-claro) !important;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.boton:hover {
+  background: var(--dorado) !important;
+  color: var(--vino) !important;
+}
+
+footer {
+  border-top: 2px solid var(--dorado);
+  background: #210811 !important;
+}
+
+@media (max-width: 700px) {
+  body::before, body::after {
+    width: 35px;
+    opacity: .35;
+  }
+
+  main {
+    padding: 35px 5%;
+  }
+}
+</style>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
