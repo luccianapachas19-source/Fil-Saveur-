@@ -545,3 +545,43 @@ header .logo-fil img {
     height: 85px;
   }
 }
+.kiki-asistente {
+  position: fixed;
+  right: 20px;
+  bottom: 15px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.kiki-boton {
+  width: 110px;
+  height: 110px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.kiki-boton img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.kiki-mensaje {
+  display: none;
+  max-width: 280px;
+  padding: 18px;
+  background: #fff5e8;
+  color: #360b17;
+  border: 2px solid #d6ad65;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.kiki-mensaje.visible {
+  display: block;
+}
