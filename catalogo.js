@@ -11,7 +11,7 @@ const productos = [
   // COSTURA
   {id:8, categoria:"costura", nombre:"Gorro navideño", descripcion:"Gorro elaborado con materiales textiles y detalles navideños."},
   {id:9, categoria:"costura", nombre:"Vincha navideña", descripcion:"Vincha confeccionada con telas y accesorios festivos."},
-  {id:10, categoria:"costura", nombre:"Mini peluche navideño", descripcion:"Pequeño peluche artesanal inspirado en la Navidad."},
+  {id:10, categoria:"costura", nombre:"Servilletas decoradas", descripcion:"Servilletas decoradas listas para centros de mesa."},
   {id:11, categoria:"costura", nombre:"Calcetines decorativos", descripcion:"Calcetines confeccionados para decorar el hogar."},
   {id:12, categoria:"costura", nombre:"Fundas de almohada", descripcion:"Fundas textiles con diseños navideños."},
   {id:13, categoria:"costura", nombre:"Mini cojines", descripcion:"Cojines pequeños elaborados con telas y detalles festivos."},
