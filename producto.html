@@ -1,398 +1,513 @@
 <!DOCTYPE html>
 <html lang="es">
-  <style>
-:root {
-  --vino: #19050b;
-  --borgoña: #360b17;
-  --dorado: #d6ad65;
-  --oro-claro: #f0d69a;
-  --crema: #fff5e8;
-}
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  color: var(--crema);
-  font-family: Georgia, serif;
-  background:
-    radial-gradient(ellipse at 50% 0%, #4a1322, #210811 48%, #130409 100%) !important;
-  background-attachment: fixed !important;
-}
-
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 110px;
-  pointer-events: none;
-  z-index: 0;
-  opacity: .75;
-  background:
-    repeating-radial-gradient(
-      ellipse at left center,
-      transparent 0 12px,
-      #d6ad65 13px 14px,
-      transparent 15px 25px
-    );
-  mask-image: linear-gradient(90deg, black, transparent);
-}
-
-body::before { left: 0; }
-body::after { right: 0; transform: scaleX(-1); }
-
-header, main, footer {
-  position: relative;
-  z-index: 1;
-}
-
-header {
-  background: #210811 !important;
-  border-bottom: 2px solid var(--dorado) !important;
-  box-shadow: 0 5px 0 #210811, 0 6px 0 #8c6534;
-}
-
-h1, h2, h3 {
-  color: var(--oro-claro) !important;
-  font-family: Georgia, serif !important;
-  font-weight: normal !important;
-}
-
-main {
-  max-width: 1150px;
-  margin: auto;
-  padding: 55px 6%;
-}
-
-main h1 {
-  text-align: center;
-  letter-spacing: 2px;
-  text-shadow: 0 3px 15px #120308;
-}
-
-#catalogo {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
-  gap: 26px;
-  margin-top: 35px;
-}
-
-.producto, .ficha {
-  position: relative;
-  overflow: hidden;
-  padding: 32px !important;
-  border: 1px solid var(--dorado) !important;
-  border-radius: 0 !important;
-  background:
-    radial-gradient(ellipse at top, #591626, #2c0a14 65%, #1c070e) !important;
-  box-shadow: 0 12px 28px #100307;
-  transition: transform .25s, box-shadow .25s;
-}
-
-.producto::before, .ficha::before {
-  content: "";
-  position: absolute;
-  inset: 8px;
-  border: 1px solid #d6ad6560;
-  pointer-events: none;
-}
-
-.producto::after, .ficha::after {
-  content: "";
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 25px;
-  height: 25px;
-  border-top: 2px solid var(--dorado);
-  border-right: 2px solid var(--dorado);
-  pointer-events: none;
-}
-
-.producto:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 35px #100307;
-}
-
-.producto h2 {
-  font-size: 32px;
-  margin: 16px 0 8px;
-}
-
-.producto p, .ficha p {
-  line-height: 1.75;
-}
-
-.boton {
-  display: inline-block;
-  padding: 12px 22px;
-  border: 1px solid var(--dorado) !important;
-  border-radius: 0 !important;
-  background: #250a13 !important;
-  color: var(--oro-claro) !important;
-  text-decoration: none;
-  letter-spacing: 1px;
-}
-
-.boton:hover {
-  background: var(--dorado) !important;
-  color: var(--vino) !important;
-}
-
-footer {
-  border-top: 2px solid var(--dorado);
-  background: #210811 !important;
-}
-
-@media (max-width: 700px) {
-  body::before, body::after {
-    width: 35px;
-    opacity: .35;
-  }
-
-  main {
-    padding: 35px 5%;
-  }
-}
-    /* Recuadro principal más ancho */
-main {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 0 5%;
-}
-
-.ficha {
-  width: 100%;
-  padding: 40px;
-}
-
-/* Imagen a la izquierda y descripción a la derecha */
-.detalle-regalo {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 30px;
-  align-items: center;
-  margin: 25px 0;
-}
-
-.imagen-regalo {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border: 2px solid #d6ad65;
-}
-
-.descripcion-regalo {
-  padding: 25px;
-  min-height: 180px;
-  background: #210811;
-  border: 1px solid #d6ad65;
-}
-
-/* Formulario dentro del mismo recuadro */
-.pedido {
-  width: 100%;
-  margin-top: 30px;
-}
-
-/* Adaptación para celulares */
-@media (max-width: 700px) {
-  .ficha {
-    padding: 22px;
-  }
-
-  .detalle-regalo {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Producto | Fil & Saveur</title>
+
   <link rel="stylesheet" href="estilos.css">
-<title>Producto | Fil & Saveur</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;background:#320912;color:#fff5e8;font-family:Georgia,serif}
-header{padding:24px 6%;display:flex;justify-content:space-between;border-bottom:1px solid #d6ad65}
-a{color:#f0d69a;text-decoration:none}
-.marca{font-size:25px;color:#f0d69a}
-main{max-width:750px;margin:60px auto;padding:0 6%}
-.ficha{padding:40px;border:1px solid #d6ad65;border-radius:20px;background:linear-gradient(145deg,#641421,#3b1019)}
-small{color:#d6ad65;letter-spacing:2px}
-h1{font-size:clamp(35px,6vw,55px);font-weight:normal;color:#f0d69a}
-p{line-height:1.7}
-.boton{display:inline-block;margin-top:20px;padding:12px 20px;border:1px solid #d6ad65;border-radius:25px}
-.boton:hover{background:#d6ad65;color:#320912}
-  /* Imagen y descripción del regalo */
-.detalle-regalo {
-  display: grid;
-  grid-template-columns: 1fr 240px;
-  gap: 25px;
-  align-items: center;
-  margin: 25px 0;
-}
 
-.descripcion-regalo {
-  padding: 22px;
-  border: 1px solid #d6ad65;
-  background: #210811;
-  line-height: 1.7;
-}
+  <style>
+    :root {
+      --vino: #19050b;
+      --borgoña: #360b17;
+      --dorado: #d6ad65;
+      --oro-claro: #f0d69a;
+      --crema: #fff5e8;
+    }
 
-.imagen-regalo {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border: 2px solid #d6ad65;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-/* Formulario */
-.pedido {
-  margin-top: 35px;
-  padding: 25px;
-  border: 1px solid #d6ad65;
-  background: #210811;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--crema);
+      font-family: Georgia, serif;
+      background: radial-gradient(
+        ellipse at 50% 0%,
+        #4a1322,
+        #210811 48%,
+        #130409 100%
+      );
+      background-attachment: fixed;
+    }
 
-.pedido form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+    header, main, footer {
+      position: relative;
+      z-index: 1;
+    }
 
-.pedido label {
-  color: #f0d69a;
-  margin-top: 8px;
-}
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px 6%;
+      background: #210811;
+      border-bottom: 2px solid var(--dorado);
+      box-shadow: 0 5px 0 #210811, 0 6px 0 #8c6534;
+    }
 
-.pedido input,
-.pedido textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #d6ad65;
-  background: #fff5e8;
-  color: #360b17;
-  font: inherit;
-}
+    .logo-fil img {
+      width: 65px;
+      height: 65px;
+      object-fit: contain;
+    }
 
-.pedido textarea {
-  min-height: 120px;
-  resize: vertical;
-}
+    .marca {
+      font-size: 25px;
+      color: var(--oro-claro);
+    }
 
-.pedido button {
-  padding: 13px;
-  margin-top: 12px;
-  background: #941f2b;
-  color: #fff5e8;
-  border: 1px solid #d6ad65;
-  cursor: pointer;
-}
+    a {
+      color: var(--oro-claro);
+      text-decoration: none;
+    }
 
-@media (max-width: 600px) {
-  .detalle-regalo {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
+    main {
+      width: 100%;
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 5%;
+    }
+
+    .ficha {
+      position: relative;
+      width: 100%;
+      padding: 40px;
+      border: 1px solid var(--dorado);
+      background: radial-gradient(
+        ellipse at top,
+        #591626,
+        #2c0a14 65%,
+        #1c070e
+      );
+      box-shadow: 0 12px 28px #100307;
+    }
+
+    .ficha::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border: 1px solid #d6ad6560;
+      pointer-events: none;
+    }
+
+    h1, h2, h3 {
+      color: var(--oro-claro);
+      font-family: Georgia, serif;
+      font-weight: normal;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: clamp(35px, 6vw, 55px);
+      letter-spacing: 2px;
+      text-shadow: 0 3px 15px #120308;
+    }
+
+    p {
+      line-height: 1.75;
+    }
+
+    small {
+      color: var(--dorado);
+      letter-spacing: 2px;
+    }
+
+    .detalle-regalo {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 30px;
+      align-items: center;
+      margin: 25px 0;
+    }
+
+    .imagen-regalo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border: 2px solid var(--dorado);
+    }
+
+    .descripcion-regalo {
+      padding: 25px;
+      min-height: 180px;
+      background: #210811;
+      border: 1px solid var(--dorado);
+    }
+
+    .pedido {
+      width: 100%;
+      margin-top: 30px;
+      padding: 25px;
+      border: 1px solid var(--dorado);
+      background: #210811;
+    }
+
+    .pedido form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pedido label {
+      color: var(--oro-claro);
+      margin-top: 8px;
+    }
+
+    .pedido input,
+    .pedido textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--dorado);
+      background: var(--crema);
+      color: var(--borgoña);
+      font: inherit;
+    }
+
+    .pedido textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .pedido button {
+      padding: 13px;
+      margin-top: 12px;
+      background: #941f2b;
+      color: var(--crema);
+      border: 1px solid var(--dorado);
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .pedido button:hover {
+      background: #b12a38;
+    }
+
+    .pedido button:disabled {
+      opacity: .6;
+      cursor: wait;
+    }
+
+    #estadoPedido {
+      min-height: 24px;
+      margin: 5px 0;
+    }
+
+    .boton {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 22px;
+      border: 1px solid var(--dorado);
+      background: #250a13;
+      color: var(--oro-claro);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    .boton:hover {
+      background: var(--dorado);
+      color: var(--vino);
+    }
+
+    @media (max-width: 700px) {
+      header {
+        gap: 10px;
+        padding: 15px 5%;
+      }
+
+      .logo-fil img {
+        width: 48px;
+        height: 48px;
+      }
+
+      .marca {
+        font-size: 20px;
+      }
+
+      .ficha {
+        padding: 22px;
+      }
+
+      .detalle-regalo {
+        grid-template-columns: 1fr;
+      }
+
+      .pedido {
+        padding: 18px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header>
-  <a href="index.html" class="logo-fil">
-  <img src="logo.png" alt="Logo de Fil & Saveur">
-</a>
-<div class="marca">Fil & Saveur</div>
-<a href="index.html">Inicio</a>
-</header>
-<main>
-<div class="ficha" id="ficha"></div>
-</main>
-<script src="catalogo.js"></script>
-<script>
-const ficha = document.getElementById("ficha");
-const id = Number(
-  new URLSearchParams(location.search).get("id")
-);
 
-if (typeof productos === "undefined") {
-  ficha.textContent = "No se pudo cargar el catálogo.";
-} else {
-  const producto = productos.find(p => p.id === id);
+  <header>
+    <a href="index.html" class="logo-fil">
+      <img src="logo.png" alt="Logo de Fil & Saveur">
+    </a>
 
-  if (!producto) {
-    ficha.innerHTML = `
-      <h1>Producto no encontrado</h1>
-      <a class="boton" href="index.html">Volver al inicio</a>
-    `;
-  } else {
-    ficha.innerHTML = `
-      <small>FIL & SAVEUR · ${producto.categoria.toUpperCase()}</small>
-      <h1>${producto.nombre}</h1>
-      <div class="detalle-regalo">
-  ${producto.imagen ? `
-    <img class="imagen-regalo"
-         src="${producto.imagen}"
-         alt="${producto.nombre}">
-  ` : ""}
-  <div class="descripcion-regalo">
-  <h2>✨ Nuestro producto: ${producto.nombre}</h2>
-  <p>${producto.descripcion}</p>
-  </div>
-</div>
-        ${producto.imagen ? `
-          <img class="imagen-regalo"
-               src="${producto.imagen}"
-               alt="${producto.nombre}">
-        ` : ""}
-      </div>
+    <div class="marca">Fil & Saveur</div>
 
-      <section class="pedido">
-        <h2>Haz tu pedido</h2>
-        <p>Completa los datos para personalizar tu regalo.</p>
+    <a href="index.html">Inicio</a>
+  </header>
 
-        <form id="formPedido">
-          <label for="nombre">Nombres y apellidos</label>
-          <input id="nombre" name="nombre" required>
+  <main>
+    <div class="ficha" id="ficha"></div>
+  </main>
 
-          <label for="celular">Número de celular</label>
-          <input id="celular" name="celular" type="tel" required>
+  <script src="catalogo.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-          <label for="dni">N° DNI</label>
-          <input id="dni" name="DNI" required>
+  <script>
+    // Reemplaza estos dos valores por los de tu proyecto.
+    const SUPABASE_URL = "https://muttydvxfxinjrzppgqj.supabase.co/rest/v1/";
+    const SUPABASE_KEY = "sb_publishable_DIQaObbnXHDMcyhBy-gg_g_kXhm8YAm";
 
-          <label for="fecha">Fecha de entrega</label>
-          <input id="fecha" name="fecha" type="date" required>
+    const ficha = document.getElementById("ficha");
 
-          <label for="lugar">Lugar de entrega</label>
-          <input id="lugar" name="lugar" required>
+    const id = Number(
+      new URLSearchParams(location.search).get("id")
+    );
 
-          <label for="hora">Hora de entrega</label>
-          <input id="hora" name="hora" type="time" required>
+    let clienteSupabase = null;
 
-          <label for="dedicatoria">Dedicatoria</label>
-          <textarea id="dedicatoria" name="dedicatoria"
-            placeholder="Escribe un mensaje especial para quien recibirá el regalo"></textarea>
+    if (
+      window.supabase &&
+      SUPABASE_URL !== "TU_PROJECT_URL" &&
+      SUPABASE_KEY !== "TU_PUBLISHABLE_KEY"
+    ) {
+      clienteSupabase = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+      );
+    }
 
-          <button type="submit">Realizar pedido</button>
-          <p id="estadoPedido" role="status"></p>
-        </form>
-      </section>
+    if (typeof productos === "undefined") {
+      ficha.textContent = "No se pudo cargar el catálogo.";
+    } else {
+      const producto = productos.find(p => p.id === id);
 
-      <a class="boton" href="categoria.html?tipo=${producto.categoria}">
-        Volver a ${producto.categoria}
-      </a>
-    `;
+      if (!producto) {
+        ficha.innerHTML = `
+          <h1>Producto no encontrado</h1>
+          <a class="boton" href="index.html">
+            Volver al inicio
+          </a>
+        `;
+      } else {
+        ficha.innerHTML = `
+          <small>
+            FIL & SAVEUR · ${producto.categoria.toUpperCase()}
+          </small>
 
-    document.getElementById("formPedido")
-      .addEventListener("submit", function(event) {
-        event.preventDefault();
-        document.getElementById("estadoPedido").textContent =
-          "El sistema de pedidos aún no está conectado.";
-      });
-  }
-}
-</script>
+          <h1>${producto.nombre}</h1>
+
+          <div class="detalle-regalo">
+            ${producto.imagen ? `
+              <img
+                class="imagen-regalo"
+                src="${producto.imagen}"
+                alt="${producto.nombre}"
+              >
+            ` : ""}
+
+            <div class="descripcion-regalo">
+              <h2>Nuestro producto: ${producto.nombre}</h2>
+              <p>${producto.descripcion}</p>
+            </div>
+          </div>
+
+          <section class="pedido">
+            <h2>Haz tu pedido</h2>
+
+            <p>
+              Completa los datos para personalizar tu regalo.
+            </p>
+
+            <form id="formPedido">
+
+              <label for="nombre">Nombres y apellidos</label>
+              <input
+                id="nombre"
+                name="nombre"
+                type="text"
+                maxlength="100"
+                autocomplete="name"
+                required
+              >
+
+              <label for="celular">Número de celular</label>
+              <input
+                id="celular"
+                name="celular"
+                type="tel"
+                inputmode="tel"
+                maxlength="20"
+                required
+              >
+
+              <label for="dni">N° DNI</label>
+              <input
+                id="dni"
+                name="dni"
+                type="text"
+                inputmode="numeric"
+                pattern="[0-9]{8}"
+                maxlength="8"
+                placeholder="Ingresa los 8 dígitos"
+                required
+              >
+
+              <label for="cantidad">Cantidad</label>
+              <input
+                id="cantidad"
+                name="cantidad"
+                type="number"
+                min="1"
+                max="100"
+                value="1"
+                required
+              >
+
+              <label for="fecha">Fecha de entrega</label>
+              <input
+                id="fecha"
+                name="fecha"
+                type="date"
+                required
+              >
+
+              <label for="lugar">Lugar de entrega</label>
+              <input
+                id="lugar"
+                name="lugar"
+                type="text"
+                maxlength="100"
+                required
+              >
+
+              <label for="hora">Hora de entrega</label>
+              <input
+                id="hora"
+                name="hora"
+                type="time"
+                required
+              >
+
+              <label for="dedicatoria">Dedicatoria</label>
+              <textarea
+                id="dedicatoria"
+                name="dedicatoria"
+                maxlength="200"
+                placeholder="Escribe un mensaje especial"
+              ></textarea>
+
+              <button type="submit">Realizar pedido</button>
+
+              <p
+                id="estadoPedido"
+                role="status"
+                aria-live="polite"
+              ></p>
+            </form>
+          </section>
+
+          <a
+            class="boton"
+            href="categoria.html?tipo=${producto.categoria}"
+          >
+            Volver a ${producto.categoria}
+          </a>
+        `;
+
+        const formulario = document.getElementById("formPedido");
+        const estado = document.getElementById("estadoPedido");
+        const boton = formulario.querySelector("button");
+
+        formulario.addEventListener("submit", async function(event) {
+          event.preventDefault();
+
+          if (!clienteSupabase) {
+            estado.textContent =
+              "La conexión con Supabase aún no está configurada.";
+            return;
+          }
+
+          const datos = new FormData(formulario);
+
+          const cliente = String(datos.get("nombre")).trim();
+          const dni = String(datos.get("dni")).trim();
+          const cantidad = Number(datos.get("cantidad"));
+
+          const detalle = JSON.stringify({
+            celular: String(datos.get("celular")).trim(),
+            fecha: datos.get("fecha"),
+            lugar: String(datos.get("lugar")).trim(),
+            hora: datos.get("hora"),
+            dedicatoria: String(
+              datos.get("dedicatoria") || ""
+            ).trim()
+          });
+
+          if (
+            !cliente ||
+            !/^[0-9]{8}$/.test(dni) ||
+            !Number.isInteger(cantidad) ||
+            cantidad < 1 ||
+            cantidad > 100
+          ) {
+            estado.textContent =
+              "Revisa el nombre, DNI y cantidad.";
+            return;
+          }
+
+          if (detalle.length > 500) {
+            estado.textContent =
+              "Reduce la información del pedido.";
+            return;
+          }
+
+          boton.disabled = true;
+          estado.textContent = "Registrando pedido...";
+
+          try {
+            const { error } = await clienteSupabase
+              .from("pedidos")
+              .insert({
+                producto_id: producto.id,
+                producto: producto.nombre,
+                cliente: cliente,
+                dni: dni,
+                cantidad: cantidad,
+                detalle: detalle
+              });
+
+            if (error) throw error;
+
+            estado.textContent =
+              "¡Pedido registrado correctamente!";
+
+            formulario.reset();
+
+          } catch (error) {
+            console.error("Error al registrar el pedido:", error);
+
+            estado.textContent =
+              "No se pudo registrar el pedido. Inténtalo nuevamente.";
+
+          } finally {
+            boton.disabled = false;
+          }
+        });
+      }
+    }
+  </script>
+
 </body>
 </html>
