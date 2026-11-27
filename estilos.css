@@ -572,3 +572,61 @@ header .logo-fil img {
     height: 95px;
   }
 }
+.pedido {
+  max-width: 650px;
+  margin: 35px auto;
+  padding: 30px;
+  background: #fff5e8;
+  border: 2px solid #d6a64b;
+  border-radius: 18px;
+  color: #641421;
+  box-sizing: border-box;
+}
+
+.pedido h2 {
+  text-align: center;
+  color: #941f2b;
+  font-family: Georgia, serif;
+}
+
+.pedido form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pedido label {
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.pedido input,
+.pedido textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d6a64b;
+  border-radius: 8px;
+  background: white;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+.pedido textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.pedido button {
+  margin-top: 15px;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  background: #941f2b;
+  color: #fff5e8;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.pedido button:hover {
+  background: #28533b;
+}
