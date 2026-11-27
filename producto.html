@@ -336,10 +336,9 @@ if (typeof productos === "undefined") {
          src="${producto.imagen}"
          alt="${producto.nombre}">
   ` : ""}
-
   <div class="descripcion-regalo">
-    <h2>Descripción del regalo</h2>
-    <p>${producto.descripcion}</p>
+  <h2>✨ Nuestro producto: ${producto.nombre}</h2>
+  <p>${producto.descripcion}</p>
   </div>
 </div>
         ${producto.imagen ? `
