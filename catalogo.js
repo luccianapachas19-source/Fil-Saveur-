@@ -161,7 +161,3 @@ const imagenesProductos = [
 productos.forEach((producto) => {
   producto.imagen = imagenesProductos[producto.id - 1];
 });
-
-productos.forEach((producto) => {
-  producto.imagen = "imagenes/" + imagenesProductos[producto.id - 1];
-});
