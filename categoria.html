@@ -232,7 +232,10 @@ if (typeof productos === "undefined") {
       tarjeta.innerHTML = `
         <span class="numero">PRODUCTO ${String(p.id).padStart(2,"0")}</span>
         <h2>${p.nombre}</h2>
-        <p>${p.descripcion}</p>
+<img class="imagen-producto"
+     src="${p.imagen}"
+     alt="${p.nombre}">
+<p>${p.descripcion}</p>
         <a class="boton" href="producto.html?id=${p.id}">
           Ver producto
         </a>
