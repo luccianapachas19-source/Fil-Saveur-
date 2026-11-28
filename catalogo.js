@@ -132,3 +132,31 @@ const productos = [
     descripcion: "Un accesorio artesanal diseñado para añadir un toque navideño a cualquier atuendo. Nuestro broche combina pequeños detalles decorativos y creatividad, convirtiéndose en un obsequio original para sorprender y compartir la alegría de estas fiestas."
   }
 ];
+// Imágenes de los productos
+const imagenesProductos = [
+  "chocolate-caliente.jpg",
+  "brownie.jpg",
+  "mini-cupcakes.jpg",
+  "alfajores.jpg",
+  "galletas-navidenas.jpg",
+  "trufas.jpg",
+  "keke-navideno.jpg",
+  "gorro-navideno.jpg",
+  "vincha-navidenia.jpg",
+  "servilletas.jpg",
+  "calcetines.jpg",
+  "fundas-almohada.jpg",
+  "mini-cojines.jpg",
+  "bolsa-tela.jpg",
+  "esferas.jpg",
+  "corona-adviento.jpg",
+  "llaveros.jpg",
+  "centro-mesa.jpg",
+  "tarjeta-3d.jpg",
+  "bolsas-papel.jpg",
+  "broche.jpg"
+];
+
+productos.forEach((producto) => {
+  producto.imagen = "imagenes/" + imagenesProductos[producto.id - 1];
+});
