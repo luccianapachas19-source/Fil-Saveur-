@@ -132,17 +132,17 @@ const productos = [
     descripcion: "Un accesorio artesanal diseñado para añadir un toque navideño a cualquier atuendo. Nuestro broche combina pequeños detalles decorativos y creatividad, convirtiéndose en un obsequio original para sorprender y compartir la alegría de estas fiestas."
   }
 ];
-// Imágenes de los productos
+// Imágenes de los 21 productos de Fil & Saveur
 const imagenesProductos = [
   "chocolate-caliente.jpg",
   "brownie.jpg",
   "mini-cupcakes.jpg",
   "alfajores.jpg",
-  "galletas-navidenas.jpg",
+  "galletas-navideñas.jpg",
   "trufas.jpg",
-  "keke-navideno.jpg",
-  "gorro-navideno.jpg",
-  "vincha-navidenia.jpg",
+  "keke-navideño.jpg",
+  "gorro-navideño.jpg",
+  "vincha-navideña.jpg",
   "servilletas.jpg",
   "calcetines.jpg",
   "fundas-almohada.jpg",
@@ -156,6 +156,11 @@ const imagenesProductos = [
   "bolsas-papel.jpg",
   "broche.jpg"
 ];
+
+// Asignar cada imagen a su producto
+productos.forEach((producto) => {
+  producto.imagen = imagenesProductos[producto.id - 1];
+});
 
 productos.forEach((producto) => {
   producto.imagen = "imagenes/" + imagenesProductos[producto.id - 1];
